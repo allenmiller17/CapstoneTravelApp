@@ -2,13 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CapstoneTravelApp"
-             x:Class="CapstoneTravelApp.MainPage">
+             x:Class="CapstoneTravelApp.MainPage"
+             NavigationPage.HasBackButton="False"
+             BackgroundColor="Transparent"
+             x:Name="Main">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center">
+                <Button x:Name="logInButton" FontSize="Medium" BorderColor="Black" BackgroundColor="Blue" TextColor="White"
+                        FlexLayout.AlignSelf="Stretch" Text="Login" Clicked="LogInButton_Clicked" Margin="20,0"/>
+                <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" FlexLayout.AlignSelf="Center"/>
+                <Button x:Name="signUpButton" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="Blue"
+                        FlexLayout.AlignSelf="Stretch" Text="Sign Up" Clicked="SignUpButton_Clicked" Margin="20,0"/>
+                <Label Text=""/>
+            </FlexLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 
 </ContentPage>

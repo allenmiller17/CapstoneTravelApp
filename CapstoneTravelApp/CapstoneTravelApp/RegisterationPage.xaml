@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CapstoneTravelApp.RegisterationPage"
+             Title="Sign Up Page">
+    <ContentPage.Content>
+        <AbsoluteLayout Margin="5,0,5,5">
+            <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center">
+                <Entry x:Name="firstNameEntry" ReturnType="Next" Placeholder="First Name"/>
+                <Entry x:Name="lastNameEntry" ReturnType="Next" Placeholder="Last Name"/>
+                <Entry x:Name="emailEntry" Placeholder="Email" ReturnType="Next" Keyboard="Email">
+                    <Entry.Behaviors>
+                        <!--<local:EmailValidationBehavior></local:EmailValidationBehavior>-->
+                    </Entry.Behaviors>
+                </Entry>
+                <Entry x:Name="userNameEntry" ReturnType="Next" MaxLength="10" Placeholder="User Name"/>
+                <Entry x:Name="passwordEntry" ReturnType="Next" MaxLength="15" IsPassword="True" Placeholder="Password"/>
+                <Entry x:Name="confirmPasswordEntry" ReturnType="Next" MaxLength="15" IsPassword="True" Placeholder="Confirm Password"/>
+                <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15"/>
+                <Button x:Name="signUpButton" Clicked="SignUpButton_Clicked" FontSize="Medium" Text="Sign Up"/>
+                <Button x:Name="loginButton" Clicked="LoginButton_Clicked" FontSize="Medium" Text="Login"/>
+            </FlexLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
