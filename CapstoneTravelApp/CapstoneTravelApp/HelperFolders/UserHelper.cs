@@ -14,6 +14,7 @@ namespace CapstoneTravelApp.HelperFolders
         {
             _SQLiteConnection = DependencyService.Get<ITravelApp_db>().GetConnection();
             _SQLiteConnection.CreateTable<User_Table>();
+            _SQLiteConnection.CreateTable<Admin_Table>();
         }
 
         public IEnumerable<User_Table> GetUsers()
@@ -21,9 +22,19 @@ namespace CapstoneTravelApp.HelperFolders
             return (from u in _SQLiteConnection.Table<User_Table>() select u).ToList();
         }
 
+        public IEnumerable<Admin_Table> GetAdmins()
+        {
+            return (from a in _SQLiteConnection.Table<Admin_Table>() select a).ToList();
+        }
+
         public User_Table GetSpecificUser(int id)
         {
             return _SQLiteConnection.Table<User_Table>().FirstOrDefault(t => t.UserId == id);
+        }
+
+        public Trips_Table GetSpecificUsername(string userName)
+        {
+            return _SQLiteConnection.Table<Trips_Table>().FirstOrDefault(un => un.UserName == userName);
         }
 
         public void DeleteUser (int id)
@@ -65,6 +76,19 @@ namespace CapstoneTravelApp.HelperFolders
         {
             var data = _SQLiteConnection.Table<User_Table>();
             var d1 = data.Where(f => f.UserName == userName1 && f.Password == pass1).FirstOrDefault();
+
+            if (d1 != null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool AdminValidate(string userName2, string pass2)
+        {
+            var data = _SQLiteConnection.Table<Admin_Table>();
+            var d1 = data.Where(a => a.AdminUserName == userName2 && a.AdminPassword == pass2).FirstOrDefault();
 
             if (d1 != null)
             {

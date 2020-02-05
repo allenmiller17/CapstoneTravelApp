@@ -4,9 +4,15 @@
              x:Class="CapstoneTravelApp.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Picker x:Name="adminPicker" Title="Are You An Administrator?" HorizontalOptions="CenterAndExpand">
+                <Picker.Items>
+                    <x:String>No</x:String>
+                    <x:String>Yes</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry x:Name="userNameEntry" HorizontalOptions="CenterAndExpand" Text="allen1" Placeholder="Username"/>
+            <Entry x:Name="passwordEntry" IsPassword="True" HorizontalOptions="CenterAndExpand" Text="allen1" Placeholder="Password"/>
+            <Button x:Name="loginButton" Text="Login" Clicked="LoginButton_Clicked" Margin="10,0" FontSize="Medium"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
