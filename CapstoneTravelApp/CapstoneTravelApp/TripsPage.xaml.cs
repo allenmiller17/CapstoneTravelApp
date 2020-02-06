@@ -109,7 +109,6 @@ namespace CapstoneTravelApp
 
                 conn.Insert(newRes);
 
-                #region Dining Data
                 var newRes2 = new Dining_Table();
                 newRes2.ResName = "Rainforest Cafe";
                 newRes2.ResAddress = "123 Downtown Disney District, Anaheim, CA 92802";
@@ -120,6 +119,40 @@ namespace CapstoneTravelApp
 
                 conn.Insert(newRes2);
                 #endregion
+
+                #region Entertainment Data
+                var newActivity = new Entertainment_Table();
+                newActivity.EntertainName = "Disneyland";
+                newActivity.EntertaninStart = new DateTime(2020, 11, 12, 08, 00, 00);
+                newActivity.EntertainEnd = new DateTime(2020, 11, 12, 23, 00, 00);
+                newActivity.EnterainAddress = "1313 Disneyland Dr, Anaheim, CA 92802";
+                newActivity.EntertainPhone = 7147814636;
+                newActivity.EntertainNotes = "Get to the park at 7:00";
+                newActivity.EntertainNotifications = 1;
+                newActivity.TripId = newTrip.TripId;
+
+                conn.Insert(newActivity);
+
+                var newActivity2 = new Entertainment_Table();
+                newActivity2.EntertainName = "Disneyland";
+                newActivity2.EntertaninStart = new DateTime(2020, 11, 14, 07, 00, 00);
+                newActivity2.EntertainEnd = new DateTime(2020, 11, 15, 00, 00, 00);
+                newActivity2.EnterainAddress = "1313 Disneyland Dr, Anaheim, CA 92802";
+                newActivity2.EntertainPhone = 7147814636;
+                newActivity2.EntertainNotes = "Get to the park at 6:00";
+                newActivity2.EntertainNotifications = 1;
+                newActivity2.TripId = newTrip.TripId;
+
+                conn.Insert(newActivity2);
+                #endregion
+
+                #region Flights Data
+                var newflight = new Flights_Table();
+                //Add Flight Data Here
+                conn.Insert(newflight);
+
+                #endregion
+
             }
 
 
