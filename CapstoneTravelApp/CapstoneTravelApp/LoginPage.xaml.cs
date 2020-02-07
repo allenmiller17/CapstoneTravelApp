@@ -18,59 +18,67 @@ namespace CapstoneTravelApp
     {
         UserHelper userData;
         private SQLiteConnection conn;
-        private Trips_Table currentTrip;
+        User_Table _currentUser;
 
-        
-        public LoginPage()
+        public LoginPage(User_Table user)
         {
             InitializeComponent();
 
             userData = new UserHelper();
             Title = "Login";
-            NavigationPage.SetHasBackButton(this, false);
-
-            var userName = userNameEntry.Text;
-
+            NavigationPage.SetHasBackButton(this, true);
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
+
+            _currentUser = user;
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            Trips_Table currentUser = userData.GetSpecificUsername(userNameEntry.Text);
-
-            if (userNameEntry.Text != null && passwordEntry.Text != null)
+            if (_currentUser.UserName == userNameEntry.Text)
             {
-                var validAdmin = userData.AdminValidate(userNameEntry.Text, passwordEntry.Text);
-                var validUser = userData.LoginValidate(userNameEntry.Text, passwordEntry.Text);
-
-                if ((string)adminPicker.SelectedItem == "Yes")
+                if (userNameEntry.Text != null && passwordEntry.Text != null)
                 {
-                    if (validAdmin)
-                    {
+                    var validAdmin = userData.AdminValidate(userNameEntry.Text, passwordEntry.Text);
+                    var validUser = userData.LoginValidate(userNameEntry.Text, passwordEntry.Text);
 
+                    if ((string)adminPicker.SelectedItem == "Yes")
+                    {
+                        if (validAdmin)
+                        {
+
+                        }
+                        else
+                        {
+                            await DisplayAlert("Warning", "Incorrect Username or Password", "Ok");
+                        }
                     }
                     else
                     {
-                        await DisplayAlert("Warning", "Incorrect Username or Password", "Ok");
-                    } 
+                        if (validUser)
+                        {
+
+                            await Navigation.PushAsync(new TripsPage(_currentUser));
+                        }
+                        else
+                        {
+                            await DisplayAlert("Warning", "All Incorrect Username or Password", "Ok");
+                        }
+                    }
                 }
                 else
                 {
-                    if (validUser)
-                    {
-
-                        await Navigation.PushAsync(new TripsPage(currentUser));
-                    }
-                    else
-                    {
-                        await DisplayAlert("Warning", "All Incorrect Username or Password", "Ok");
-                    }
-                }
+                    await DisplayAlert("Warning", "All Fields Are Required", "Ok");
+                } 
             }
             else
             {
-                await DisplayAlert("Warning", "All Fields Are Required", "Ok");
+                await DisplayAlert("Warning", "Selected Username does not match input Username", "Ok");
             }
+        }
+
+        private void LoginButton_Clicked_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

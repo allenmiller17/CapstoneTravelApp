@@ -19,13 +19,13 @@ namespace CapstoneTravelApp
         UserHelper userHelper = new UserHelper();
         private SQLiteConnection conn;
         private ObservableCollection<Trips_Table> TripsList;
-        private Trips_Table CurrentUser;
+        private User_Table CurrentUser;
 
-        public TripsPage(Trips_Table currentUser)
+        public TripsPage(User_Table _currentUser)
         {
             InitializeComponent();
 
-            CurrentUser = currentUser;
+            CurrentUser = _currentUser;
 
             Title = "My Trips";
 
@@ -148,8 +148,71 @@ namespace CapstoneTravelApp
 
                 #region Flights Data
                 var newflight = new Flights_Table();
-                //Add Flight Data Here
+                newflight.FlightNumber = "SWA123";
+                newflight.AirlineName = "Southwest";
+                newflight.DepartTime = new DateTime(2020, 11, 12, 13, 45, 00);
+                newflight.ArriveTime = new DateTime(2020, 11, 12, 14, 30, 00);
+                newflight.DepartLocation = "SLC";
+                newflight.ArriveLocation = "LAX";
+                newflight.DepartGate = "A5";
+                newflight.FlightNotifications = 1;
+                newflight.TripId = newTrip.TripId;
+
                 conn.Insert(newflight);
+
+                var newflight1 = new Flights_Table();
+                newflight1.FlightNumber = "SWA987";
+                newflight1.AirlineName = "Southwest";
+                newflight1.DepartTime = new DateTime(2020, 11, 17, 8, 00, 00);
+                newflight1.ArriveTime = new DateTime(2020, 11, 17, 10, 10, 00);
+                newflight1.DepartLocation = "LAX";
+                newflight1.ArriveLocation = "SLC";
+                newflight1.DepartGate = "G13";
+                newflight1.FlightNotifications = 0;
+                newflight1.TripId = newTrip.TripId;
+
+                conn.Insert(newflight1);
+
+                #endregion
+
+                #region Lodging Data
+                var newLodge = new Lodging_Table();
+                newLodge.LodgeName = "Bestern Plus Pavilions";
+                newLodge.LodgeLocation = "1176 W Katella Ave, Anaheim, CA 92802";
+                newLodge.LodgePhone = 7147760140;
+                newLodge.LodgeStart = new DateTime(2020, 11, 12, 11, 00, 00);
+                newLodge.LodgeEnd = new DateTime(2020, 11, 15, 9, 00, 00);
+                newLodge.LodgeNotifications = 1;
+                newLodge.TripId = newTrip.TripId;
+
+                conn.Insert(newLodge);
+
+                var newLodge1 = new Lodging_Table();
+                newLodge1.LodgeName = "Bestern Plus Stovals";
+                newLodge1.LodgeLocation = "1100 W Katella Ave, Anaheim, CA 92802";
+                newLodge1.LodgePhone = 7147765555;
+                newLodge1.LodgeStart = new DateTime(2020, 11, 15, 11, 00, 00);
+                newLodge1.LodgeEnd = new DateTime(2020, 11, 17, 9, 00, 00);
+                newLodge1.LodgeNotifications = 0;
+                newLodge1.TripId = newTrip.TripId;
+
+                conn.Insert(newLodge1);
+
+                #endregion
+
+                #region Transportation Data
+                var newRental = new Transportation_Table();
+                newRental.RentalName = "Hertz";
+                newRental.ConfNumber = "1E0C2G";
+                newRental.PickUpDate = new DateTime(2020, 11, 12);
+                newRental.ReturnDate = new DateTime(2020, 11, 17);
+                newRental.PickUpLocation = "LAX";
+                newRental.ReturnLocation = "LAX";
+                newRental.RentalPhone = 5558885555;
+                newRental.RentalNotifications = 1;
+                newRental.TripId = newTrip.TripId;
+
+                conn.Insert(newRental);
 
                 #endregion
 

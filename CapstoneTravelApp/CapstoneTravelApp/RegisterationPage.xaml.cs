@@ -50,40 +50,40 @@ namespace CapstoneTravelApp
                 users.LastName = lastNameEntry.Text;
                 users.Password = passwordEntry.Text;
 
-                try
-                {
-                    var returnValue = helper.AddUser(users);
-                    if (returnValue == "User Added")
-                    {
-                        await DisplayAlert("Success!", "New user created", "Ok");
-                        await Navigation.PushAsync(new LoginPage());
-                    }
-                    else
-                    {
-                        await DisplayAlert("Failure", "User not created", "OK");
+                //try
+                //{
+                //    var returnValue = helper.AddUser(users);
+                //    if (returnValue == "User Added")
+                //    {
+                //        await DisplayAlert("Success!", "New user created", "Ok");
+                //        await Navigation.PushAsync(new LoginPage());
+                //    }
+                //    else
+                //    {
+                //        await DisplayAlert("Failure", "User not created", "OK");
 
-                        warningLabel.IsVisible = false;
+                //        warningLabel.IsVisible = false;
 
-                        emailEntry.Text = string.Empty;
+                //        emailEntry.Text = string.Empty;
 
-                        userNameEntry.Text = string.Empty;
+                //        userNameEntry.Text = string.Empty;
 
-                        passwordEntry.Text = string.Empty;
+                //        passwordEntry.Text = string.Empty;
 
-                        confirmPasswordEntry.Text = string.Empty;
-                    }
-                }
-                catch (Exception ex)
-                {
+                //        confirmPasswordEntry.Text = string.Empty;
+                //    }
+                //}
+                //catch (Exception ex)
+                //{
 
-                    Debug.WriteLine(ex);
-                }
+                //    Debug.WriteLine(ex);
+                //}
             }
         }
 
-        private async void LoginButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new LoginPage());
-        }
+        //private async void LoginButton_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new LoginPage());
+        //}
     }
 }

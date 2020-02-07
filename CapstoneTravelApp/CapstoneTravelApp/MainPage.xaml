@@ -8,16 +8,26 @@
              x:Name="Main">
 
     <ContentPage.Content>
-        <AbsoluteLayout>
-            <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center">
-                <Button x:Name="logInButton" FontSize="Medium" BorderColor="Black" BackgroundColor="Blue" TextColor="White"
-                        FlexLayout.AlignSelf="Stretch" Text="Login" Clicked="LogInButton_Clicked" Margin="20,0"/>
-                <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" FlexLayout.AlignSelf="Center"/>
-                <Button x:Name="signUpButton" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="Blue"
-                        FlexLayout.AlignSelf="Stretch" Text="Sign Up" Clicked="SignUpButton_Clicked" Margin="20,0"/>
-                <Label Text=""/>
-            </FlexLayout>
-        </AbsoluteLayout>
+        <StackLayout>
+            <StackLayout>
+                <StackLayout>
+                    <Label Text="Select User Below"/>
+                </StackLayout>
+                <ListView x:Name="UsersListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding FirstName}"  HorizontalOptions="StartAndExpand"/>
+                                    <Label x:Name="{Binding LastName}" HorizontalOptions="CenterAndExpand"/>
+                                    <Label x:Name="{Binding UserName}" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 
 </ContentPage>

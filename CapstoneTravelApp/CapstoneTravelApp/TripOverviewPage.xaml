@@ -7,21 +7,66 @@
             <StackLayout x:Name="UserTrips">
                 <StackLayout>
                     <StackLayout>
-                        <Label Text="My Trips" HorizontalOptions="CenterAndExpand" Font="Bold, 20"/>
+                        <Label Text="Flights" HorizontalOptions="CenterAndExpand" Font="Bold, 20" Margin="0,10,0,0"/>
                     </StackLayout>
-                    <StackLayout x:Name="Trips">
-                        <ListView x:Name="TripsListView" RowHeight="100">
+                    <StackLayout x:Name="Flights">
+                        <ListView x:Name="FlightsListView" RowHeight="120">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell IsEnabled="True">
                                         <StackLayout Padding="10" Orientation="Vertical">
                                             <Frame HasShadow="True">
                                                 <StackLayout>
-                                                    <Label Text="{Binding TripName}" FontSize="Medium" FontAttributes="Bold"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding DepartLocation}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                                        <Label Text=" - " FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                                        <Label Text="{Binding ArriveLocation}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                            <Label Text="Gate: " FontAttributes="Bold" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                                                            <Label  Text="{Binding DepartGate}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
                                                     <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"/>
                                                     <StackLayout Orientation="Horizontal">
-                                                        <Label Text="{Binding TripStart, StringFormat='{}{0:MM/dd/yyyy}'}" HorizontalOptions="StartAndExpand"/>
-                                                        <Label Text="{Binding TripEnd, StringFormat='{}{0:MM/dd/yyyy}'}" HorizontalOptions="EndAndExpand"/>
+                                                        <Label Text="{Binding DepartTime, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding ArriveTime, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="EndAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding DepartTime, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding ArriveTime, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="EndAndExpand"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Lodging" HorizontalOptions="CenterAndExpand" Font="Bold, 20" Margin="0,10,0,10"/>
+                    </StackLayout>
+                    <StackLayout x:Name="Hotel">
+                        <ListView x:Name="LodgingListView" RowHeight="120">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell IsEnabled="True">
+                                        <StackLayout Padding="10" Orientation="Vertical">
+                                            <Frame HasShadow="True">
+                                                <StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding LodgeName}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                                    </StackLayout>
+                                                    <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Check In: " FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding LodgeStart, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="Check Out: " FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                                                        <Label Text="{Binding LodgeEnd, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="EndAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding LodgeStart, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding LodgeEnd, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="EndAndExpand"/>
                                                     </StackLayout>
                                                 </StackLayout>
                                             </Frame>
@@ -32,7 +77,6 @@
                         </ListView>
                     </StackLayout>
                 </StackLayout>
-                <Button x:Name="addTripButton" Text="Add Trip" Margin="10,0" FontSize="Medium" Clicked="AddTripButton_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

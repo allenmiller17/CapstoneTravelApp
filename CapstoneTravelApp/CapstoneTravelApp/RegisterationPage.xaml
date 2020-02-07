@@ -18,7 +18,7 @@
                 <Entry x:Name="confirmPasswordEntry" ReturnType="Next" MaxLength="15" IsPassword="True" Placeholder="Confirm Password"/>
                 <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15"/>
                 <Button x:Name="signUpButton" Clicked="SignUpButton_Clicked" FontSize="Medium" Text="Sign Up"/>
-                <Button x:Name="loginButton" Clicked="LoginButton_Clicked" FontSize="Medium" Text="Login"/>
+                <Button x:Name="loginButton" FontSize="Medium" Text="Login"/>
             </FlexLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

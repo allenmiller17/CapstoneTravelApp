@@ -24,7 +24,6 @@
                                                         <Label Text="{Binding TripEnd, StringFormat='{}{0:MM/dd/yyyy}'}" HorizontalOptions="EndAndExpand"/>
                                                     </StackLayout>
                                                 </StackLayout>
-                                                <!--</Grid>-->
                                             </Frame>
                                         </StackLayout>
                                     </ViewCell>
