@@ -10,9 +10,6 @@ namespace CapstoneTravelApp.DatabaseTables
         [PrimaryKey, AutoIncrement]
         public int TripId { get; set; }
 
-        [NotNull]
-        public int UserId { get; set; }
-
         public string UserName { get; set; }
 
         [NotNull]

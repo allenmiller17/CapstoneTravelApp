@@ -13,45 +13,64 @@ using System.Collections.ObjectModel;
 
 namespace CapstoneTravelApp
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TripsPage : ContentPage
+    public partial class MainPage : ContentPage
     {
-        UserHelper userHelper = new UserHelper();
         private SQLiteConnection conn;
-        private ObservableCollection<Trips_Table> TripsList;
-        private User_Table CurrentUser;
-
-        public TripsPage(User_Table _currentUser)
+        private ObservableCollection<User_Table> UserList;
+        
+        public MainPage()
         {
             InitializeComponent();
 
-            CurrentUser = _currentUser;
-
-            Title = "My Trips";
+            Title = "Welcome";
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
+            NavigationPage.SetHasNavigationBar(this.Main, true);
 
-            TripsListView.ItemTapped += new EventHandler<ItemTappedEventArgs>(Trip_Tapped);
+            conn.DropTable<User_Table>();
+            conn.DropTable<Trips_Table>();
+            conn.DropTable<Flights_Table>();
+            conn.DropTable<Dining_Table>();
+            conn.DropTable<Entertainment_Table>();
+            conn.DropTable<Lodging_Table>();
+            conn.DropTable<Transportation_Table>();
 
-            NavigationPage.SetHasBackButton(this, true);
-        }
-
-        protected override void OnAppearing()
-        {
-
+            conn.CreateTable<User_Table>();
             conn.CreateTable<Trips_Table>();
             conn.CreateTable<Flights_Table>();
             conn.CreateTable<Dining_Table>();
             conn.CreateTable<Entertainment_Table>();
             conn.CreateTable<Lodging_Table>();
             conn.CreateTable<Transportation_Table>();
-            conn.CreateTable<User_Table>();
 
-            var trips = conn.Query<Trips_Table>($"SELECT * FROM Trips_Table WHERE UserName = '{CurrentUser}'");
+            var _UserList = conn.Query<User_Table>($"SELECT * FROM User_Table");
 
-            if (!trips.Any())
+            if (!_UserList.Any())
             {
+                #region User Data
+                var newUser = new User_Table();
+                newUser.UserName = "allen1";
+                newUser.Password = "allen1";
+                newUser.FirstName = "Allen";
+                newUser.LastName = "Miller";
+                newUser.UserEmail = "17allenmiller@gmail.com";
+
+                conn.InsertOrReplace(newUser);
+                _UserList.Add(newUser);
+
+                var newUser1 = new User_Table();
+                newUser1.UserName = "allen2";
+                newUser1.Password = "allen2";
+                newUser1.FirstName = "Allen2";
+                newUser1.LastName = "Miller2";
+                newUser1.UserEmail = "0217allenmiller@gmail.com";
+
+                conn.Insert(newUser1);
+                _UserList.Add(newUser1);
+
+                #endregion
+
                 #region Trips Data
                 var newTrip = new Trips_Table();
                 newTrip.UserName = "allen1";
@@ -61,10 +80,10 @@ namespace CapstoneTravelApp
                 newTrip.Notes = "We're In Disneyland Evan";
                 newTrip.TripNotifications = 1;
 
-                conn.InsertOrReplace(newTrip);
-                trips.Add(newTrip);
+                conn.Insert(newTrip);
 
                 var newTrip2 = new Trips_Table();
+                newTrip2.TripId = newTrip.TripId++;
                 newTrip2.UserName = "allen2";
                 newTrip2.TripName = "Florida 2021";
                 newTrip2.TripStart = new DateTime(2021, 11, 12);
@@ -72,10 +91,10 @@ namespace CapstoneTravelApp
                 newTrip2.Notes = "We're In Florida Evan";
                 newTrip2.TripNotifications = 0;
 
-                conn.InsertOrReplace(newTrip2);
-                trips.Add(newTrip2);
+                conn.Insert(newTrip2);
 
                 var newTrip3 = new Trips_Table();
+                newTrip3.TripId = newTrip2.TripId++;
                 newTrip3.UserName = "allen1";
                 newTrip3.TripName = "DisneyLand 2020";
                 newTrip3.TripStart = new DateTime(2020, 11, 12);
@@ -83,10 +102,10 @@ namespace CapstoneTravelApp
                 newTrip3.Notes = "We're In Disneyland Evan";
                 newTrip3.TripNotifications = 1;
 
-                conn.InsertOrReplace(newTrip3);
-                trips.Add(newTrip3);
+                conn.Insert(newTrip3);
 
                 var newTrip4 = new Trips_Table();
+                newTrip4.TripId = newTrip3.TripId++;
                 newTrip4.UserName = "allen2";
                 newTrip4.TripName = "Florida 2021";
                 newTrip4.TripStart = new DateTime(2021, 11, 12);
@@ -94,8 +113,7 @@ namespace CapstoneTravelApp
                 newTrip4.Notes = "We're In Florida Evan";
                 newTrip4.TripNotifications = 0;
 
-                conn.InsertOrReplace(newTrip4);
-                trips.Add(newTrip4);
+                conn.Insert(newTrip4);
                 #endregion
 
                 #region Dining Data
@@ -150,8 +168,8 @@ namespace CapstoneTravelApp
                 var newflight = new Flights_Table();
                 newflight.FlightNumber = "SWA123";
                 newflight.AirlineName = "Southwest";
-                newflight.DepartTime = new DateTime(2020, 11, 12, 13, 45, 00);
-                newflight.ArriveTime = new DateTime(2020, 11, 12, 14, 30, 00);
+                newflight.DepartTime = new DateTime(2020, 11, 12, 1, 45, 00);
+                newflight.ArriveTime = new DateTime(2020, 11, 12, 3, 30, 00);
                 newflight.DepartLocation = "SLC";
                 newflight.ArriveLocation = "LAX";
                 newflight.DepartGate = "A5";
@@ -215,26 +233,17 @@ namespace CapstoneTravelApp
                 conn.Insert(newRental);
 
                 #endregion
-
             }
-
-
-            TripsList = new ObservableCollection<Trips_Table>(trips);
-            
-            TripsListView.ItemsSource = TripsList;
-
-            base.OnAppearing();
         }
 
-        private void AddTripButton_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new LoginPage());
         }
 
-        private async void Trip_Tapped(object sender, ItemTappedEventArgs e)
+        private async void SignUpButton_Clicked(object sender, EventArgs e)
         {
-            Trips_Table trip = (Trips_Table)e.Item;
-            await Navigation.PushAsync(new TripOverviewPage(trip));
+            await Navigation.PushAsync(new RegisterationPage());
         }
     }
 }

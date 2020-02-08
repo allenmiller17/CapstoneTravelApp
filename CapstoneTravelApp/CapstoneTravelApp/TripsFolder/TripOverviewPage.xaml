@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CapstoneTravelApp.TripOverviewPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="UserTrips">
+                <Frame HasShadow="True" x:Name="FlightsFrame" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Flights" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                                x:Name="flightsButton" Clicked="FlightsButton_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" x:Name="LodgingFrame" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Lodging" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                                x:Name="lodgingButton" Clicked="LodgingButton_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" x:Name="TransportFrame" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Transportation" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                                x:Name="transportButton" Clicked="TransportButton_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" x:Name="DiningFrame" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Dining" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                                x:Name="diningButton" Clicked="DiningButton_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" x:Name="EntertainFrame" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Entertainment" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                                x:Name="entertainButton" Clicked="EntertainButton_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" x:Name="NotesFrame" Margin="10,0,10,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Notes" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                                x:Name="notesButton" Clicked="NotesButton_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

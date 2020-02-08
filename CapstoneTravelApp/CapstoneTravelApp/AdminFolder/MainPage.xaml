@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CapstoneTravelApp"
+             x:Class="CapstoneTravelApp.MainPage"
+             NavigationPage.HasBackButton="False"
+             BackgroundColor="Transparent"
+             x:Name="Main">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <StackLayout>
+                    <Label Text="Welcome" HorizontalOptions="CenterAndExpand" Font="Bold, 20" Margin="0,10,0,0"/>
+                </StackLayout>
+                <Frame HasShadow="True" Margin="10,0">
+                    <StackLayout>
+                        <Button Text="Login" FontSize="Medium" HorizontalOptions="FillAndExpand" x:Name="loginButton" Clicked="Button_Clicked" Margin="10,0"/>
+                        <Button Text="Sign Up" FontSize="Medium" HorizontalOptions="FillAndExpand" x:Name="signUpButton" Clicked="SignUpButton_Clicked" Margin="10,0"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
