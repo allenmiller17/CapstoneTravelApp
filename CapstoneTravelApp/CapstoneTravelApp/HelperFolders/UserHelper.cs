@@ -27,10 +27,10 @@ namespace CapstoneTravelApp.HelperFolders
             return (from a in _SQLiteConnection.Table<Admin_Table>() select a).ToList();
         }
 
-        public User_Table GetSpecificUser(int id)
-        {
-            return _SQLiteConnection.Table<User_Table>().FirstOrDefault(t => t.UserId == id);
-        }
+        //public User_Table GetSpecificUser(int id)
+        //{
+        //    return _SQLiteConnection.Table<User_Table>().FirstOrDefault(t => t.UserId == id);
+        //}
 
         public Trips_Table GetSpecificUsername(string userName)
         {

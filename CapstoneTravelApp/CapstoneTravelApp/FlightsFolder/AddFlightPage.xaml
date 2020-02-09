@@ -4,9 +4,40 @@
              x:Class="CapstoneTravelApp.AddFlightPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Frame HasShadow="True" Margin="10,0">
+                    <StackLayout>
+                        <StackLayout>
+                            <Entry x:Name="airlineNameEntry" Placeholder="Airline Name" HorizontalOptions="Fill"/>
+                            <Entry x:Name="flightNumberEntry" Placeholder="Flight Number" HorizontalOptions="Fill"/>
+                            <Entry x:Name="departGateEntry" Placeholder="Departure Gate" HorizontalOptions="Fill"/>
+                            <Entry x:Name="departLocEntry" Placeholder="Airport Abbreviation ex: LAX or JFK" HorizontalOptions="Fill"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Departure Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <DatePicker x:Name="departDatePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Departure Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <TimePicker x:Name="departTimePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <Entry x:Name="arriveLocEntry" Placeholder="Airport Abbreviation ex: LAX or JFK" HorizontalOptions="Fill"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Arrival Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <DatePicker x:Name="arriveDatePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Arrival Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <TimePicker x:Name="arriveTimePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <Label Text="Flight Reminders" HorizontalOptions="Start" FontSize="Medium"/>
+                            <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

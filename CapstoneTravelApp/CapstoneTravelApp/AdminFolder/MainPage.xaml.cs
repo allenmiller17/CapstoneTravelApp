@@ -17,7 +17,7 @@ namespace CapstoneTravelApp
     {
         private SQLiteConnection conn;
         private ObservableCollection<User_Table> UserList;
-        
+
         public MainPage()
         {
             InitializeComponent();
@@ -48,18 +48,23 @@ namespace CapstoneTravelApp
 
             if (!_UserList.Any())
             {
+
+
+
                 #region User Data
                 var newUser = new User_Table();
+                //newUser.UserId = 1;
                 newUser.UserName = "allen1";
                 newUser.Password = "allen1";
                 newUser.FirstName = "Allen";
                 newUser.LastName = "Miller";
                 newUser.UserEmail = "17allenmiller@gmail.com";
 
-                conn.InsertOrReplace(newUser);
+                conn.Insert(newUser);
                 _UserList.Add(newUser);
 
                 var newUser1 = new User_Table();
+                //newUser1.UserId = newUser.UserId++;
                 newUser1.UserName = "allen2";
                 newUser1.Password = "allen2";
                 newUser1.FirstName = "Allen2";
@@ -71,50 +76,48 @@ namespace CapstoneTravelApp
 
                 #endregion
 
-                #region Trips Data
-                var newTrip = new Trips_Table();
-                newTrip.UserName = "allen1";
-                newTrip.TripName = "DisneyLand 2020";
-                newTrip.TripStart = new DateTime(2020, 11, 12);
-                newTrip.TripEnd = new DateTime(2020, 11, 17);
-                newTrip.Notes = "We're In Disneyland Evan";
-                newTrip.TripNotifications = 1;
 
-                conn.Insert(newTrip);
+                    //#region Trips Data
+                    //var newTrip = new Trips_Table();
+                    //newTrip.UserName = "allen1";
+                    //newTrip.TripName = "DisneyLand 2020";
+                    //newTrip.TripStart = new DateTime(2020, 11, 12);
+                    //newTrip.TripEnd = new DateTime(2020, 11, 17);
+                    //newTrip.Notes = "We're In Disneyland Evan";
+                    //newTrip.TripNotifications = 1;
 
-                var newTrip2 = new Trips_Table();
-                newTrip2.TripId = newTrip.TripId++;
-                newTrip2.UserName = "allen2";
-                newTrip2.TripName = "Florida 2021";
-                newTrip2.TripStart = new DateTime(2021, 11, 12);
-                newTrip2.TripEnd = new DateTime(2021, 11, 17);
-                newTrip2.Notes = "We're In Florida Evan";
-                newTrip2.TripNotifications = 0;
+                    //conn.Insert(newTrip);
 
-                conn.Insert(newTrip2);
+                    var newTrip2 = new Trips_Table();
+                    newTrip2.UserName = "allen2";
+                    newTrip2.TripName = "Florida 2021";
+                    newTrip2.TripStart = new DateTime(2021, 11, 12);
+                    newTrip2.TripEnd = new DateTime(2021, 11, 17);
+                    newTrip2.Notes = "We're In Florida Evan";
+                    newTrip2.TripNotifications = 0;
 
-                var newTrip3 = new Trips_Table();
-                newTrip3.TripId = newTrip2.TripId++;
-                newTrip3.UserName = "allen1";
-                newTrip3.TripName = "DisneyLand 2020";
-                newTrip3.TripStart = new DateTime(2020, 11, 12);
-                newTrip3.TripEnd = new DateTime(2020, 11, 17);
-                newTrip3.Notes = "We're In Disneyland Evan";
-                newTrip3.TripNotifications = 1;
+                    conn.Insert(newTrip2);
 
-                conn.Insert(newTrip3);
+                    //var newTrip3 = new Trips_Table();
+                    //newTrip3.UserName = "allen1";
+                    //newTrip3.TripName = "DisneyLand 2020";
+                    //newTrip3.TripStart = new DateTime(2020, 11, 12);
+                    //newTrip3.TripEnd = new DateTime(2020, 11, 17);
+                    //newTrip3.Notes = "We're In Disneyland Evan";
+                    //newTrip3.TripNotifications = 1;
 
-                var newTrip4 = new Trips_Table();
-                newTrip4.TripId = newTrip3.TripId++;
-                newTrip4.UserName = "allen2";
-                newTrip4.TripName = "Florida 2021";
-                newTrip4.TripStart = new DateTime(2021, 11, 12);
-                newTrip4.TripEnd = new DateTime(2021, 11, 17);
-                newTrip4.Notes = "We're In Florida Evan";
-                newTrip4.TripNotifications = 0;
+                    //conn.Insert(newTrip3);
 
-                conn.Insert(newTrip4);
-                #endregion
+                    //var newTrip4 = new Trips_Table();
+                    //newTrip4.UserName = "allen2";
+                    //newTrip4.TripName = "Florida 2021";
+                    //newTrip4.TripStart = new DateTime(2021, 11, 12);
+                    //newTrip4.TripEnd = new DateTime(2021, 11, 17);
+                    //newTrip4.Notes = "We're In Florida Evan";
+                    //newTrip4.TripNotifications = 0;
+
+                    //conn.Insert(newTrip4);
+                    //#endregion 
 
                 #region Dining Data
                 var newRes = new Dining_Table();
@@ -123,7 +126,7 @@ namespace CapstoneTravelApp
                 newRes.ResPhone = 7147813463;
                 newRes.ResNotes = "Dinner with my wife";
                 newRes.ResNotifications = 1;
-                newRes.TripId = newTrip.TripId;
+                newRes.TripId = newTrip2.TripId;
 
                 conn.Insert(newRes);
 
@@ -133,7 +136,7 @@ namespace CapstoneTravelApp
                 newRes2.ResPhone = 7148665555;
                 newRes2.ResNotes = "Birthday Dinner";
                 newRes2.ResNotifications = 1;
-                newRes2.TripId = newTrip.TripId;
+                newRes2.TripId = newTrip2.TripId;
 
                 conn.Insert(newRes2);
                 #endregion
@@ -147,7 +150,7 @@ namespace CapstoneTravelApp
                 newActivity.EntertainPhone = 7147814636;
                 newActivity.EntertainNotes = "Get to the park at 7:00";
                 newActivity.EntertainNotifications = 1;
-                newActivity.TripId = newTrip.TripId;
+                newActivity.TripId = newTrip2.TripId;
 
                 conn.Insert(newActivity);
 
@@ -159,7 +162,7 @@ namespace CapstoneTravelApp
                 newActivity2.EntertainPhone = 7147814636;
                 newActivity2.EntertainNotes = "Get to the park at 6:00";
                 newActivity2.EntertainNotifications = 1;
-                newActivity2.TripId = newTrip.TripId;
+                newActivity2.TripId = newTrip2.TripId;
 
                 conn.Insert(newActivity2);
                 #endregion
@@ -174,7 +177,7 @@ namespace CapstoneTravelApp
                 newflight.ArriveLocation = "LAX";
                 newflight.DepartGate = "A5";
                 newflight.FlightNotifications = 1;
-                newflight.TripId = newTrip.TripId;
+                newflight.TripId = newTrip2.TripId;
 
                 conn.Insert(newflight);
 
@@ -187,7 +190,7 @@ namespace CapstoneTravelApp
                 newflight1.ArriveLocation = "SLC";
                 newflight1.DepartGate = "G13";
                 newflight1.FlightNotifications = 0;
-                newflight1.TripId = newTrip.TripId;
+                newflight1.TripId = newTrip2.TripId;
 
                 conn.Insert(newflight1);
 
@@ -201,7 +204,7 @@ namespace CapstoneTravelApp
                 newLodge.LodgeStart = new DateTime(2020, 11, 12, 11, 00, 00);
                 newLodge.LodgeEnd = new DateTime(2020, 11, 15, 9, 00, 00);
                 newLodge.LodgeNotifications = 1;
-                newLodge.TripId = newTrip.TripId;
+                newLodge.TripId = newTrip2.TripId;
 
                 conn.Insert(newLodge);
 
@@ -212,7 +215,7 @@ namespace CapstoneTravelApp
                 newLodge1.LodgeStart = new DateTime(2020, 11, 15, 11, 00, 00);
                 newLodge1.LodgeEnd = new DateTime(2020, 11, 17, 9, 00, 00);
                 newLodge1.LodgeNotifications = 0;
-                newLodge1.TripId = newTrip.TripId;
+                newLodge1.TripId = newTrip2.TripId;
 
                 conn.Insert(newLodge1);
 
@@ -228,7 +231,7 @@ namespace CapstoneTravelApp
                 newRental.ReturnLocation = "LAX";
                 newRental.RentalPhone = 5558885555;
                 newRental.RentalNotifications = 1;
-                newRental.TripId = newTrip.TripId;
+                newRental.TripId = newTrip2.TripId;
 
                 conn.Insert(newRental);
 

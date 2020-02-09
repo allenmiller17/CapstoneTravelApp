@@ -8,7 +8,7 @@ namespace CapstoneTravelApp.DatabaseTables
     public class Trips_Table
     {
         [PrimaryKey, AutoIncrement]
-        public int TripId { get; set; }
+        public int  TripId { get; set; }
 
         public string UserName { get; set; }
 

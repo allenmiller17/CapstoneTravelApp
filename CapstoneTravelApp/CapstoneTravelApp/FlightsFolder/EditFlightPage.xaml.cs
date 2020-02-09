@@ -31,6 +31,7 @@ namespace CapstoneTravelApp.FlightsFolder
 
         protected override void OnAppearing()
         {
+            conn.CreateTable<Flights_Table>();
             airlineNameEntry.Text = currentFlight.AirlineName;
             flightNumberEntry.Text = currentFlight.FlightNumber;
             departGateEntry.Text = currentFlight.DepartGate;
@@ -48,37 +49,44 @@ namespace CapstoneTravelApp.FlightsFolder
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
-            //departDatePicker.Format = DatePicker.Format.Custom;
 
-            //string dDate1 = departDatePicker.Date.ToString("MM/dd/yyyy") + departTimePicker.Time.ToString("hh:mm tt");
-            //string dDate2 = departTimePicker.ToString();
-            //DateTime dDate3 = Convert.ToDateTime(dDate1 + " " + dDate2);
-            //DateTime dDate = DateTime.ParseExact(dDate1 + " " + dDate2, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+            string dDate1 = departDatePicker.Date.ToString("MM/dd/yyyy");
+            string dDate2 = DateTime.Today.Add(departTimePicker.Time).ToString(departTimePicker.Format);
 
-            //string aDate1 = arriveDatePicker.Date.ToString("MM/dd/yyyy");
-            //string aDate2 = arriveTimePicker.Time.ToString("hh:mm:ss tt");
-            ////DateTime aDate3 = Convert.ToDateTime(aDate1 + " " + aDate2);
-            //DateTime aDate = DateTime.ParseExact(aDate1 + " " + aDate2, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+            DateTime dDate3 = Convert.ToDateTime(dDate1 + " " + dDate2);
+
+            string aDate1 = arriveDatePicker.Date.ToString("MM/dd/yyyy");
+            string aDate2 = DateTime.Today.Add(arriveTimePicker.Time).ToString(arriveTimePicker.Format);
+            DateTime aDate3 = Convert.ToDateTime(aDate1 + " " + aDate2);
+
 
             var newFlightInfo = new Flights_Table();
             newFlightInfo.AirlineName = airlineNameEntry.Text;
             newFlightInfo.FlightNumber = flightNumberEntry.Text;
             newFlightInfo.DepartGate = departGateEntry.Text;
             newFlightInfo.DepartLocation = departLocEntry.Text;
-            newFlightInfo.DepartTime = departDatePicker.Date;
+            newFlightInfo.DepartTime = dDate3;
             newFlightInfo.ArriveLocation = arriveLocEntry.Text;
-            newFlightInfo.ArriveTime = arriveDatePicker.Date; ;
+            newFlightInfo.ArriveTime = aDate3; 
             newFlightInfo.FlightNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
 
-            if (newFlightInfo.DepartTime < newFlightInfo.ArriveTime)
+            if (newFlightInfo.DepartLocation.Length <= 3 || newFlightInfo.ArriveLocation.Length <= 3)
             {
-                conn.Insert(newFlightInfo);
-                await DisplayAlert("Notice", "New Flight Added to Trip", "Ok");
-                await Navigation.PopModalAsync();
+                if (newFlightInfo.DepartTime <= newFlightInfo.ArriveTime)
+                {
+                    conn.Update(newFlightInfo);
+                    await DisplayAlert("Notice", $"{currentFlight.AirlineName}" + " " + $"{currentFlight.FlightNumber}" + " Updated", "Ok");
+
+                    await Navigation.PopModalAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Warning", "Arrival Date and Time cannot be before Departure Date and Time", "Ok");
+                } 
             }
             else
             {
-                await DisplayAlert("Warning", "Arrival Date or Time cannot be before Departure Date and Time", "Ok");
+                await DisplayAlert("Warning", "Airport code may only contain 3 letters", "Ok");
             }
         }
 

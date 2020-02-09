@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 
+
 namespace CapstoneTravelApp.DatabaseTables
 {
     public class User_Table

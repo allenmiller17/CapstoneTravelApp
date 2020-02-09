@@ -7,7 +7,7 @@ namespace CapstoneTravelApp.DatabaseTables
     public class Flights_Table
     {
         [PrimaryKey, AutoIncrement]
-        public int FlightId { get; set; }
+        public int  FlightId { get; set; }
 
         [NotNull]
         public string FlightNumber { get; set; }
