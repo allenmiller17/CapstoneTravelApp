@@ -25,12 +25,12 @@
                             <Label Text="Flight Reminders" HorizontalOptions="End" FontSize="Medium"/>
                             <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch"/>
                         </StackLayout>
-                        <Button x:Name="flightNotesButton" Text="Flight Notes" Clicked="FlightNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="12"/>
+                        <Button x:Name="flightNotesButton" Text="Flight Notes" Clicked="FlightNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
             <StackLayout VerticalOptions="EndAndExpand">
-                <Button x:Name="menuButton" Text="Menu" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="12"/>
+                <Button x:Name="menuButton" Text="Menu" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -1,12 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              x:Class="CapstoneTravelApp.FlightsFolder.EditFlightPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Frame HasShadow="True" Margin="10,0">
+                    <StackLayout>
+                        <StackLayout>
+                            <Entry x:Name="airlineNameEntry" Placeholder="Airline Name" HorizontalOptions="Fill"/>
+                            <Entry x:Name="flightNumberEntry" Placeholder="Flight Number" HorizontalOptions="Fill"/>
+                            <Entry x:Name="departGateEntry" Placeholder="Departure Gate" HorizontalOptions="Fill"/>
+                            <Entry x:Name="departLocEntry" Placeholder="Airport Abbreviation ex: LAX or JFK" HorizontalOptions="Fill"/>
+                            <DatePicker x:Name="departDatePicker" Format="{}MM/dd/yyyy hh:mm tt" HorizontalOptions="Fill"/>
+                            <TimePicker x:Name="departTimePicker" Format="{}hh:mm tt" HorizontalOptions="Fill"/>
+                            <Entry x:Name="arriveLocEntry" Placeholder="Airport Abbreviation ex: LAX or JFK" HorizontalOptions="Fill"/>
+                            <DatePicker x:Name="arriveDatePicker" Format="{}MM/dd/yyyy hh:mm tt" HorizontalOptions="Fill"/>
+                            <TimePicker x:Name="arriveTimePicker" HorizontalOptions="Fill"/>
+                            <Label Text="Flight Reminders" HorizontalOptions="End" FontSize="Medium"/>
+                            <Switch HorizontalOptions="End" x:Name="notificationSwitch"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

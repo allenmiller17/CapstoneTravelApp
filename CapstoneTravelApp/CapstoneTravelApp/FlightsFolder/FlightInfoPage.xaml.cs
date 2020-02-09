@@ -10,6 +10,7 @@ using CapstoneTravelApp.DatabaseTables;
 using SQLite;
 using CapstoneTravelApp.HelperFolders;
 using System.Collections.ObjectModel;
+using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.FlightsFolder
 {
@@ -53,7 +54,12 @@ namespace CapstoneTravelApp.FlightsFolder
             }
             else if (action == "Share Flight")
             {
-                //Add Sharing Controls
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Text = flighNameLabel.Text + "\n" + flightNumberLabel.Text + "\n" + departGatelabel.Text +
+                    "\n" + departLocLabel.Text + "\n" + departTimeLabel.Text + "\n" + arriveLocLabel.Text + "\n" + arriveTimeLabel.Text + "\n"
+                    + "Record created at: " + DateTime.Now.ToString("MM/dd/yy HH:mm tt")
+                });
             }
             else if (action == "Delete Flight")
             {
@@ -71,7 +77,7 @@ namespace CapstoneTravelApp.FlightsFolder
             await Navigation.PushModalAsync(new FlightNotesPage(_currentFlight));
         }
 
-        private async void Switch_Toggled(object sender, ToggledEventArgs e)
+        private void Switch_Toggled(object sender, ToggledEventArgs e)
         {
             _currentFlight.FlightNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
             conn.Update(_currentFlight);
