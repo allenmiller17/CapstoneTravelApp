@@ -7,8 +7,8 @@
             <Label Text="--Logo Place Holder--" HorizontalOptions="CenterAndExpand" Font="Bold, 20"/>
             <Frame HasShadow="True" Margin="10,0">
                 <StackLayout>
-                    <Entry x:Name="userNameEntry" HorizontalOptions="FillAndExpand" Text="allen2" Placeholder="Username" Margin="10,0"/>
-                    <Entry x:Name="passwordEntry" IsPassword="True" HorizontalOptions="FillAndExpand" Text="allen2" Placeholder="Password" Margin="10,0"/>
+                    <Entry x:Name="userNameEntry" HorizontalOptions="FillAndExpand" Text="allen1" Placeholder="Username" Margin="10,0"/>
+                    <Entry x:Name="passwordEntry" IsPassword="True" HorizontalOptions="FillAndExpand" Text="allen1" Placeholder="Password" Margin="10,0"/>
                     <Picker x:Name="adminPicker" Title="Are You An Administrator?" HorizontalOptions="FillAndExpand" Margin="10,0">
                         <Picker.Items>
                             <x:String>No</x:String>

@@ -52,7 +52,7 @@ namespace CapstoneTravelApp
 
             TripsList = new ObservableCollection<Trips_Table>(trips);
             
-            TripsListView.ItemsSource = TripsList;
+            TripsListView.ItemsSource = TripsList.OrderBy(d => d.TripStart);
 
             base.OnAppearing();
         }

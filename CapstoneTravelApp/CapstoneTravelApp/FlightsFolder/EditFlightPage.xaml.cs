@@ -61,6 +61,7 @@ namespace CapstoneTravelApp.FlightsFolder
 
 
             var newFlightInfo = new Flights_Table();
+            newFlightInfo.FlightId = currentFlight.FlightId;
             newFlightInfo.AirlineName = airlineNameEntry.Text;
             newFlightInfo.FlightNumber = flightNumberEntry.Text;
             newFlightInfo.DepartGate = departGateEntry.Text;

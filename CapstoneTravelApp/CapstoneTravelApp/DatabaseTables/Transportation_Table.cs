@@ -7,7 +7,7 @@ namespace CapstoneTravelApp.DatabaseTables
 {
     public class Transportation_Table
     {
-        [PrimaryKey, AutoIncrement]
+        [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int RentalId { get; set; }
 
         [NotNull]

@@ -30,7 +30,7 @@
                 </Frame>
             </StackLayout>
             <StackLayout VerticalOptions="EndAndExpand">
-                <Button x:Name="menuButton" Text="Menu" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
+                <Button x:Name="menuButton" Text="Flight Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

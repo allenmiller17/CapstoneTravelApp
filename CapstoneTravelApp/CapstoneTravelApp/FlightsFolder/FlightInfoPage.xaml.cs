@@ -19,6 +19,7 @@ namespace CapstoneTravelApp.FlightsFolder
 	{
         private Flights_Table _currentFlight;
         private SQLiteConnection conn;
+        private ObservableCollection<Flights_Table> _flightsList;
 
 		public FlightInfoPage (Flights_Table currentFlight)
 		{
@@ -33,21 +34,27 @@ namespace CapstoneTravelApp.FlightsFolder
 
         protected override void OnAppearing()
         {
+            conn.CreateTable<Flights_Table>();
+            var flightsList = conn.Query<Flights_Table>($"SELECT * FROM Flights_Table WHERE FlightID = '{_currentFlight.FlightId}'");
+            _flightsList = new ObservableCollection<Flights_Table>(flightsList);
+
             flighNameLabel.Text = _currentFlight.AirlineName;
             flightNumberLabel.Text = "Flight: " + $"{_currentFlight.FlightNumber}";
             departGatelabel.Text = "Departure Gate: " + $"{_currentFlight.DepartGate}";
             departLocLabel.Text = "Departs: " + $"{_currentFlight.DepartLocation}";
-            departTimeLabel.Text = _currentFlight.DepartTime.ToString("MM/dd HH:mm tt");
+            departTimeLabel.Text = $"{_currentFlight.DepartTime.ToString("MM/dd HH:mm tt")}";
             arriveLocLabel.Text = "Arrives: " + $"{_currentFlight.ArriveLocation}";
-            arriveTimeLabel.Text = _currentFlight.ArriveTime.ToString("MM/dd HH:mm tt");
+            arriveTimeLabel.Text = $"{_currentFlight.ArriveTime.ToString("MM/dd HH:mm tt")}";
             notificationSwitch.IsToggled = _currentFlight.FlightNotifications == 1 ? true : false;
+
+
 
             base.OnAppearing();
         }
 
         private async void MenuButton_Clicked(object sender, EventArgs e)
         {
-            var action = await DisplayActionSheet("Menu", "Cancel", "Delete Flight", "Edit Flight", "Share Flight");
+            var action = await DisplayActionSheet("Flight Options", "Cancel", "Delete Flight", "Edit Flight", "Share Flight");
             if (action == "Edit Flight")
             {
                 await Navigation.PushModalAsync(new EditFlightPage(_currentFlight));
@@ -58,7 +65,7 @@ namespace CapstoneTravelApp.FlightsFolder
                 {
                     Text = flighNameLabel.Text + "\n" + flightNumberLabel.Text + "\n" + departGatelabel.Text +
                     "\n" + departLocLabel.Text + "\n" + departTimeLabel.Text + "\n" + arriveLocLabel.Text + "\n" + arriveTimeLabel.Text + "\n"
-                    + "Record created at: " + DateTime.Now.ToString("MM/dd/yy HH:mm tt")
+                    + "Record updated at: " + DateTime.Now.ToString("MM/dd/yy HH:mm tt")
                 });
             }
             else if (action == "Delete Flight")

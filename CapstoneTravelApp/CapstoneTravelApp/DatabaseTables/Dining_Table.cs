@@ -6,7 +6,7 @@ namespace CapstoneTravelApp.DatabaseTables
 {
     public class Dining_Table
     {
-        [PrimaryKey, AutoIncrement]
+        [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int ResId { get; set; }
 
         [NotNull]

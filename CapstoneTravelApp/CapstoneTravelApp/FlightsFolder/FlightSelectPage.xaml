@@ -46,7 +46,7 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout>
-                <Button x:Name="menuButton" Text="Menu" Clicked="MenuButton_Clicked" Margin="10,0" FontSize="Medium"/>
+                <Button x:Name="menuButton" Text="Options" Clicked="MenuButton_Clicked" Margin="10,0" FontSize="Medium"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

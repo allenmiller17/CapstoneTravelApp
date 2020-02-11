@@ -52,6 +52,7 @@ namespace CapstoneTravelApp
             newFlightInfo.ArriveLocation = arriveLocEntry.Text;
             newFlightInfo.ArriveTime = aDate3;
             newFlightInfo.FlightNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
+            newFlightInfo.TripId = currentTrip.TripId;
 
             if (newFlightInfo.DepartLocation.Length <= 3 || newFlightInfo.ArriveLocation.Length <= 3)
             {

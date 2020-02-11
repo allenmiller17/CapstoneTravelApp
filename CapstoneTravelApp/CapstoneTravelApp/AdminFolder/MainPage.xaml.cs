@@ -77,47 +77,49 @@ namespace CapstoneTravelApp
                 #endregion
 
 
-                    //#region Trips Data
-                    //var newTrip = new Trips_Table();
-                    //newTrip.UserName = "allen1";
-                    //newTrip.TripName = "DisneyLand 2020";
-                    //newTrip.TripStart = new DateTime(2020, 11, 12);
-                    //newTrip.TripEnd = new DateTime(2020, 11, 17);
-                    //newTrip.Notes = "We're In Disneyland Evan";
-                    //newTrip.TripNotifications = 1;
+                //#region Trips Data
+                //var newTrip = new Trips_Table();
+                //newTrip.UserName = "allen1";
+                //newTrip.TripName = "DisneyLand 2020";
+                //newTrip.TripStart = new DateTime(2020, 11, 12);
+                //newTrip.TripEnd = new DateTime(2020, 11, 17);
+                //newTrip.Notes = "We're In Disneyland Evan";
+                //newTrip.TripNotifications = 1;
 
-                    //conn.Insert(newTrip);
+                //conn.Insert(newTrip);
 
-                    var newTrip2 = new Trips_Table();
-                    newTrip2.UserName = "allen2";
-                    newTrip2.TripName = "Florida 2021";
-                    newTrip2.TripStart = new DateTime(2021, 11, 12);
-                    newTrip2.TripEnd = new DateTime(2021, 11, 17);
-                    newTrip2.Notes = "We're In Florida Evan";
-                    newTrip2.TripNotifications = 0;
+                var newTrip2 = new Trips_Table();
+                newTrip2.UserName = newUser.UserName;
+                newTrip2.TripName = "Florida 2021";
+                newTrip2.TripStart = new DateTime(2021, 11, 12);
+                newTrip2.TripEnd = new DateTime(2021, 11, 17);
+                newTrip2.Notes = "We're In Florida Evan";
+                newTrip2.TripNotifications = 0;
+                newTrip2.UserId = newUser.UserId;
 
-                    conn.Insert(newTrip2);
+                conn.Insert(newTrip2);
 
-                    //var newTrip3 = new Trips_Table();
-                    //newTrip3.UserName = "allen1";
-                    //newTrip3.TripName = "DisneyLand 2020";
-                    //newTrip3.TripStart = new DateTime(2020, 11, 12);
-                    //newTrip3.TripEnd = new DateTime(2020, 11, 17);
-                    //newTrip3.Notes = "We're In Disneyland Evan";
-                    //newTrip3.TripNotifications = 1;
+                var newTrip3 = new Trips_Table();
+                newTrip3.UserName = newUser1.UserName;
+                newTrip3.TripName = "DisneyLand 2020";
+                newTrip3.TripStart = new DateTime(2020, 11, 12);
+                newTrip3.TripEnd = new DateTime(2020, 11, 17);
+                newTrip3.Notes = "We're In Disneyland Evan";
+                newTrip3.TripNotifications = 1;
+                newTrip3.UserId = newUser1.UserId;
 
-                    //conn.Insert(newTrip3);
+                conn.Insert(newTrip3);
 
-                    //var newTrip4 = new Trips_Table();
-                    //newTrip4.UserName = "allen2";
-                    //newTrip4.TripName = "Florida 2021";
-                    //newTrip4.TripStart = new DateTime(2021, 11, 12);
-                    //newTrip4.TripEnd = new DateTime(2021, 11, 17);
-                    //newTrip4.Notes = "We're In Florida Evan";
-                    //newTrip4.TripNotifications = 0;
+                //var newTrip4 = new Trips_Table();
+                //newTrip4.UserName = "allen2";
+                //newTrip4.TripName = "Florida 2021";
+                //newTrip4.TripStart = new DateTime(2021, 11, 12);
+                //newTrip4.TripEnd = new DateTime(2021, 11, 17);
+                //newTrip4.Notes = "We're In Florida Evan";
+                //newTrip4.TripNotifications = 0;
 
-                    //conn.Insert(newTrip4);
-                    //#endregion 
+                //conn.Insert(newTrip4);
+                //#endregion 
 
                 #region Dining Data
                 var newRes = new Dining_Table();

@@ -7,10 +7,12 @@ namespace CapstoneTravelApp.DatabaseTables
 {
     public class Trips_Table
     {
-        [PrimaryKey, AutoIncrement]
+        [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int  TripId { get; set; }
 
         public string UserName { get; set; }
+
+        public int UserId { get; set; }
 
         [NotNull]
         public string TripName { get; set; }

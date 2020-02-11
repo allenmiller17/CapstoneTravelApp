@@ -62,7 +62,7 @@ namespace CapstoneTravelApp
                     }
                     else
                     {
-                        await DisplayAlert("Warning", "All Incorrect Username or Password", "Ok");
+                        await DisplayAlert("Warning", "Incorrect Username or Password", "Ok");
                     }
                 }
             }

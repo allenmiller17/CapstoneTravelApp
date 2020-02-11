@@ -8,7 +8,7 @@ namespace CapstoneTravelApp.DatabaseTables
 {
     public class User_Table
     {
-        [PrimaryKey, AutoIncrement]
+        [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int UserId { get; set; }
 
         [NotNull]

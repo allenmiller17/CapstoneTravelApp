@@ -6,7 +6,7 @@ namespace CapstoneTravelApp.DatabaseTables
 {
     public class Flights_Table
     {
-        [PrimaryKey, AutoIncrement]
+        [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int  FlightId { get; set; }
 
         [NotNull]
@@ -35,5 +35,7 @@ namespace CapstoneTravelApp.DatabaseTables
 
 
         public int FlightNotifications { get; set; }
+
+        public string FlightNotes { get; set; }
     }
 }
