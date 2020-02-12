@@ -23,7 +23,7 @@ namespace CapstoneTravelApp.DatabaseTables
         public DateTime LodgeEnd { get; set; }
 
         [MaxLength(10)]
-        public long LodgePhone { get; set; }
+        public string LodgePhone { get; set; }
 
         [NotNull]
         public int TripId { get; set; }

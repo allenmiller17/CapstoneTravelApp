@@ -202,7 +202,7 @@ namespace CapstoneTravelApp
                 var newLodge = new Lodging_Table();
                 newLodge.LodgeName = "Bestern Plus Pavilions";
                 newLodge.LodgeLocation = "1176 W Katella Ave, Anaheim, CA 92802";
-                newLodge.LodgePhone = 7147760140;
+                newLodge.LodgePhone = "7147760140";
                 newLodge.LodgeStart = new DateTime(2020, 11, 12, 11, 00, 00);
                 newLodge.LodgeEnd = new DateTime(2020, 11, 15, 9, 00, 00);
                 newLodge.LodgeNotifications = 1;
@@ -213,7 +213,7 @@ namespace CapstoneTravelApp
                 var newLodge1 = new Lodging_Table();
                 newLodge1.LodgeName = "Bestern Plus Stovals";
                 newLodge1.LodgeLocation = "1100 W Katella Ave, Anaheim, CA 92802";
-                newLodge1.LodgePhone = 7147765555;
+                newLodge1.LodgePhone = "7147765555";
                 newLodge1.LodgeStart = new DateTime(2020, 11, 15, 11, 00, 00);
                 newLodge1.LodgeEnd = new DateTime(2020, 11, 17, 9, 00, 00);
                 newLodge1.LodgeNotifications = 0;

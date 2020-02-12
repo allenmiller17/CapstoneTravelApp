@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using CapstoneTravelApp.DatabaseTables;
+using System;
 
 namespace CapstoneTravelApp.HelperFolders
 {
@@ -96,6 +97,29 @@ namespace CapstoneTravelApp.HelperFolders
             }
             else
                 return false;
+        }
+
+        public bool ValidPhoneNumber (string phone)
+        {
+            if (phone.Length != 10)
+            {
+                return false;
+            }
+
+
+            //Exception Handeling
+            //Checks to see if there are extra characters in the number and returns an error message if there are
+            try
+            {
+                var IntPhone = Convert.ToInt64(phone);
+            }
+            catch (FormatException)
+            {
+
+                return false;
+            }
+
+            return true;
         }
     }
 }

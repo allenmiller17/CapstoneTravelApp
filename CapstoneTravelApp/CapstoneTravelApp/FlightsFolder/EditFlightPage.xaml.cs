@@ -60,8 +60,6 @@ namespace CapstoneTravelApp.FlightsFolder
             DateTime aDate3 = Convert.ToDateTime(aDate1 + " " + aDate2);
 
 
-            //var newFlightInfo = new Flights_Table();
-            //newFlightInfo.FlightId = currentFlight.FlightId;
             currentFlight.AirlineName = airlineNameEntry.Text;
             currentFlight.FlightNumber = flightNumberEntry.Text;
             currentFlight.DepartGate = departGateEntry.Text;

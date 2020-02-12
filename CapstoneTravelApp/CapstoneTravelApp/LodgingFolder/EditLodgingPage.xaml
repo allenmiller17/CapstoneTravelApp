@@ -4,9 +4,38 @@
              x:Class="CapstoneTravelApp.LodgingFolder.EditLodging">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Frame HasShadow="True" Margin="10,0">
+                    <StackLayout>
+                        <StackLayout>
+                            <Entry x:Name="lodgeNameEntry" Placeholder="Lodging Name" HorizontalOptions="Fill"/>
+                            <Entry x:Name="lodgeLocEntry" Placeholder="Address" HorizontalOptions="Fill"/>
+                            <Entry x:Name="lodgePhoneEntry" Placeholder="Phone" HorizontalOptions="Fill"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Check-in Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <DatePicker x:Name="checkInDatePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Check-in Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <TimePicker x:Name="checkInTimePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Check-out Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <DatePicker x:Name="checkOutDatePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Check-out Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <TimePicker x:Name="checkOutTimePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <Label Text="Lodging Reminders" HorizontalOptions="Start" FontSize="Medium"/>
+                            <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
