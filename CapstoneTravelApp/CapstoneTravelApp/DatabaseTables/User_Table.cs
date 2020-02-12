@@ -11,7 +11,7 @@ namespace CapstoneTravelApp.DatabaseTables
         [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int UserId { get; set; }
 
-        [NotNull]
+        [NotNull] [Unique]
         public string UserName { get; set; }
 
         [NotNull]

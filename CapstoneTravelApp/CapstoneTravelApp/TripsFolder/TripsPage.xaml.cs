@@ -10,6 +10,7 @@ using CapstoneTravelApp.DatabaseTables;
 using SQLite;
 using CapstoneTravelApp.HelperFolders;
 using System.Collections.ObjectModel;
+using CapstoneTravelApp.TripsFolder;
 
 namespace CapstoneTravelApp
 {
@@ -59,7 +60,7 @@ namespace CapstoneTravelApp
 
         private void AddTripButton_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new AddTripPage(CurrentUser));
         }
 
         private async void Trip_Tapped(object sender, ItemTappedEventArgs e)

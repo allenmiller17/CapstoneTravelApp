@@ -6,41 +6,25 @@
         <StackLayout>
             <StackLayout x:Name="UserTrips">
                 <Frame HasShadow="True" x:Name="FlightsFrame" Margin="10,0,10,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Flights" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                    <StackLayout >
+                        <Button Text="Flights" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
                                 x:Name="flightsButton" Clicked="FlightsButton_Clicked"/>
-                    </StackLayout>
-                </Frame>
-                <Frame HasShadow="True" x:Name="LodgingFrame" Margin="10,0,10,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Lodging" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                        <Button Text="Lodging" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
                                 x:Name="lodgingButton" Clicked="LodgingButton_Clicked"/>
-                    </StackLayout>
-                </Frame>
-                <Frame HasShadow="True" x:Name="TransportFrame" Margin="10,0,10,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Transportation" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                        <Button Text="Transportation" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
                                 x:Name="transportButton" Clicked="TransportButton_Clicked"/>
-                    </StackLayout>
-                </Frame>
-                <Frame HasShadow="True" x:Name="DiningFrame" Margin="10,0,10,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Dining" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                        <Button Text="Dining" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
                                 x:Name="diningButton" Clicked="DiningButton_Clicked"/>
-                    </StackLayout>
-                </Frame>
-                <Frame HasShadow="True" x:Name="EntertainFrame" Margin="10,0,10,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Entertainment" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                        <Button Text="Entertainment" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
                                 x:Name="entertainButton" Clicked="EntertainButton_Clicked"/>
-                    </StackLayout>
-                </Frame>
-                <Frame HasShadow="True" x:Name="NotesFrame" Margin="10,0,10,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Notes" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0"
+                        <Button Text="Notes" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
                                 x:Name="notesButton" Clicked="NotesButton_Clicked"/>
                     </StackLayout>
                 </Frame>
+            </StackLayout>
+            <StackLayout>
+                <Button x:Name="optionsButton" Text="Trip Options" Clicked="OptionsButton_Clicked" FontSize="Medium" FontAttributes="Bold" Margin="10, 10"
+                        CornerRadius="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

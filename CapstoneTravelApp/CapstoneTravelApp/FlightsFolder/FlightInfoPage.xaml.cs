@@ -70,7 +70,7 @@ namespace CapstoneTravelApp.FlightsFolder
             }
             else if (action == "Delete Flight")
             {
-                var deleteResponse = await DisplayAlert("Warning", "Your are about to delete this flight! Are you sure?", "Yes", "No");
+                var deleteResponse = await DisplayAlert("Warning", "You are about to delete this flight! Are you sure?", "Yes", "No");
                 if (deleteResponse)
                 {
                     conn.Delete(_currentFlight);

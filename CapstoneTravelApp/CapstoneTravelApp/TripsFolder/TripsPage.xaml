@@ -32,7 +32,7 @@
                         </ListView>
                     </StackLayout>
                 </StackLayout>
-                <Button x:Name="addTripButton" Text="Add Trip" Margin="10,0" FontSize="Medium" Clicked="AddTripButton_Clicked"/>
+                <Button x:Name="addTripButton" Text="Add Trip" Margin="10, 10" FontSize="Medium" Clicked="AddTripButton_Clicked" CornerRadius="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

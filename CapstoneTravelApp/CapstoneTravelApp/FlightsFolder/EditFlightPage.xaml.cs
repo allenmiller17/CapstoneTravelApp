@@ -60,22 +60,22 @@ namespace CapstoneTravelApp.FlightsFolder
             DateTime aDate3 = Convert.ToDateTime(aDate1 + " " + aDate2);
 
 
-            var newFlightInfo = new Flights_Table();
-            newFlightInfo.FlightId = currentFlight.FlightId;
-            newFlightInfo.AirlineName = airlineNameEntry.Text;
-            newFlightInfo.FlightNumber = flightNumberEntry.Text;
-            newFlightInfo.DepartGate = departGateEntry.Text;
-            newFlightInfo.DepartLocation = departLocEntry.Text;
-            newFlightInfo.DepartTime = dDate3;
-            newFlightInfo.ArriveLocation = arriveLocEntry.Text;
-            newFlightInfo.ArriveTime = aDate3; 
-            newFlightInfo.FlightNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
+            //var newFlightInfo = new Flights_Table();
+            //newFlightInfo.FlightId = currentFlight.FlightId;
+            currentFlight.AirlineName = airlineNameEntry.Text;
+            currentFlight.FlightNumber = flightNumberEntry.Text;
+            currentFlight.DepartGate = departGateEntry.Text;
+            currentFlight.DepartLocation = departLocEntry.Text;
+            currentFlight.DepartTime = dDate3;
+            currentFlight.ArriveLocation = arriveLocEntry.Text;
+            currentFlight.ArriveTime = aDate3;
+            currentFlight.FlightNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
 
-            if (newFlightInfo.DepartLocation.Length <= 3 || newFlightInfo.ArriveLocation.Length <= 3)
+            if (currentFlight.DepartLocation.Length <= 3 || currentFlight.ArriveLocation.Length <= 3)
             {
-                if (newFlightInfo.DepartTime <= newFlightInfo.ArriveTime)
+                if (currentFlight.DepartTime <= currentFlight.ArriveTime)
                 {
-                    conn.Update(newFlightInfo);
+                    conn.Update(currentFlight);
                     await DisplayAlert("Notice", $"{currentFlight.AirlineName}" + " " + $"{currentFlight.FlightNumber}" + " Updated", "Ok");
 
                     await Navigation.PopModalAsync();

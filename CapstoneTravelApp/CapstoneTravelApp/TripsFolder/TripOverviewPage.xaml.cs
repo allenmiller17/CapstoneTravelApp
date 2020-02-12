@@ -10,6 +10,7 @@ using CapstoneTravelApp.DatabaseTables;
 using SQLite;
 using CapstoneTravelApp.HelperFolders;
 using System.Collections.ObjectModel;
+using CapstoneTravelApp.TripsFolder;
 
 namespace CapstoneTravelApp
 {
@@ -66,6 +67,24 @@ namespace CapstoneTravelApp
         private async void NotesButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TripNotesPage(CurrentTrip));
+        }
+
+        private async void OptionsButton_Clicked(object sender, EventArgs e)
+        {
+            var action = await DisplayActionSheet("Options", "Cancel", "Delete", "Edit Trip");
+            if (action == "Edit Trip")
+            {
+                await Navigation.PushModalAsync(new EditTripPage(CurrentTrip));
+            }
+            else if (action == "Delete")
+            {
+                var deleteResponse = await DisplayAlert("Warning", "You are about to delet this trip! Are you sure?", "Yes", "No");
+                if (deleteResponse)
+                {
+                    conn.Delete(CurrentTrip);
+                    await Navigation.PopAsync();
+                }
+            }
         }
     }
 }
