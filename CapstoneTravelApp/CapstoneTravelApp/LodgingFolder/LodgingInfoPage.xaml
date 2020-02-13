@@ -4,9 +4,38 @@
              x:Class="CapstoneTravelApp.LodgingFolder.LodgingInfoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Frame HasShadow="True" Margin="10,0">
+                    <StackLayout>
+                        <Label x:Name="lodgingNameLabel" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold"/>
+                        <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"/>
+                        <StackLayout>
+                            <Label Text="Address: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label x:Name="lodgingLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Phone: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label x:Name="lodgingPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Check-in: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label x:Name="checkInDateLabel" HorizontalOptions="End" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Check-out: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label x:Name="checkOutDateLabel" HorizontalOptions="End" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Lodging Reminders" HorizontalOptions="End" FontSize="Medium"/>
+                            <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch" Toggled="NotificationSwitch_Toggled"/>
+                        </StackLayout>
+                        <Button x:Name="lodgingNotesButton" Text="Lodging Notes" Clicked="LodgingNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button x:Name="menuButton" Text="Lodging Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

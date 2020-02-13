@@ -53,7 +53,6 @@ namespace CapstoneTravelApp
 
                 #region User Data
                 var newUser = new User_Table();
-                //newUser.UserId = 1;
                 newUser.UserName = "allen1";
                 newUser.Password = "allen1";
                 newUser.FirstName = "Allen";
@@ -64,7 +63,6 @@ namespace CapstoneTravelApp
                 _UserList.Add(newUser);
 
                 var newUser1 = new User_Table();
-                //newUser1.UserId = newUser.UserId++;
                 newUser1.UserName = "allen2";
                 newUser1.Password = "allen2";
                 newUser1.FirstName = "Allen2";
@@ -76,17 +74,7 @@ namespace CapstoneTravelApp
 
                 #endregion
 
-
-                //#region Trips Data
-                //var newTrip = new Trips_Table();
-                //newTrip.UserName = "allen1";
-                //newTrip.TripName = "DisneyLand 2020";
-                //newTrip.TripStart = new DateTime(2020, 11, 12);
-                //newTrip.TripEnd = new DateTime(2020, 11, 17);
-                //newTrip.Notes = "We're In Disneyland Evan";
-                //newTrip.TripNotifications = 1;
-
-                //conn.Insert(newTrip);
+                #region Trips Data
 
                 var newTrip2 = new Trips_Table();
                 newTrip2.UserName = newUser.UserName;
@@ -110,16 +98,7 @@ namespace CapstoneTravelApp
 
                 conn.Insert(newTrip3);
 
-                //var newTrip4 = new Trips_Table();
-                //newTrip4.UserName = "allen2";
-                //newTrip4.TripName = "Florida 2021";
-                //newTrip4.TripStart = new DateTime(2021, 11, 12);
-                //newTrip4.TripEnd = new DateTime(2021, 11, 17);
-                //newTrip4.Notes = "We're In Florida Evan";
-                //newTrip4.TripNotifications = 0;
-
-                //conn.Insert(newTrip4);
-                //#endregion 
+                #endregion
 
                 #region Dining Data
                 var newRes = new Dining_Table();
@@ -200,7 +179,7 @@ namespace CapstoneTravelApp
 
                 #region Lodging Data
                 var newLodge = new Lodging_Table();
-                newLodge.LodgeName = "Bestern Plus Pavilions";
+                newLodge.LodgeName = "Best Western Plus Pavilions";
                 newLodge.LodgeLocation = "1176 W Katella Ave, Anaheim, CA 92802";
                 newLodge.LodgePhone = "7147760140";
                 newLodge.LodgeStart = new DateTime(2020, 11, 12, 11, 00, 00);
@@ -211,7 +190,7 @@ namespace CapstoneTravelApp
                 conn.Insert(newLodge);
 
                 var newLodge1 = new Lodging_Table();
-                newLodge1.LodgeName = "Bestern Plus Stovals";
+                newLodge1.LodgeName = "Best Western Plus Stovals";
                 newLodge1.LodgeLocation = "1100 W Katella Ave, Anaheim, CA 92802";
                 newLodge1.LodgePhone = "7147765555";
                 newLodge1.LodgeStart = new DateTime(2020, 11, 15, 11, 00, 00);

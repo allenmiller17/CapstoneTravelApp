@@ -99,7 +99,7 @@ namespace CapstoneTravelApp.HelperFolders
                 return false;
         }
 
-        public bool ValidPhoneNumber (string phone)
+        public static bool ValidPhoneNumber (string phone)
         {
             if (phone.Length != 10)
             {
@@ -121,5 +121,6 @@ namespace CapstoneTravelApp.HelperFolders
 
             return true;
         }
+
     }
 }
