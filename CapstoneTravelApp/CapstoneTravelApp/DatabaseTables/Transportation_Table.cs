@@ -28,8 +28,7 @@ namespace CapstoneTravelApp.DatabaseTables
 
         public string ReturnLocation { get; set; }
 
-        [MaxLength(10)]
-        public long RentalPhone { get; set; }
+        public string RentalPhone { get; set; }
 
         [NotNull]
         public int TripId { get; set; }

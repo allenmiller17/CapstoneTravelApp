@@ -210,7 +210,7 @@ namespace CapstoneTravelApp
                 newRental.ReturnDate = new DateTime(2020, 11, 17);
                 newRental.PickUpLocation = "LAX";
                 newRental.ReturnLocation = "LAX";
-                newRental.RentalPhone = 5558885555;
+                newRental.RentalPhone = "5558885555";
                 newRental.RentalNotifications = 1;
                 newRental.TripId = newTrip2.TripId;
 

@@ -4,9 +4,45 @@
              x:Class="CapstoneTravelApp.TransportSelectPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout x:Name="Transportation">
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="Local Transportation" HorizontalOptions="CenterAndExpand" Font="Bold, 20" Margin="0,10,0,10"/>
+                    </StackLayout>
+                    <StackLayout x:Name="Rental">
+                        <ListView x:Name="TransportListView" RowHeight="120">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell IsEnabled="True">
+                                        <StackLayout Padding="10" Orientation="Vertical">
+                                            <Frame HasShadow="True">
+                                                <StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding RentalName}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding ConfNumber}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                                                    </StackLayout>
+                                                    <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding PickUpDate, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding PickUpDate, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="EndAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding ReturnDate, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding ReturnDate, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="EndAndExpand"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout>
+                <Button x:Name="menuButton" Text="Options" Clicked="MenuButton_Clicked" Margin="10,0" FontSize="Medium"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
