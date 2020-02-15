@@ -65,7 +65,7 @@ namespace CapstoneTravelApp.LodgingFolder
 
             if (_hotel.LodgeStart <= _hotel.LodgeEnd)
             {
-                if (UserHelper.ValidPhoneNumber(lodgePhoneEntry.Text))
+                if (UserHelper.PhoneCheck(lodgePhoneEntry.Text))
                 {
                     conn.Update(_hotel);
                     await DisplayAlert("Notice", "Lodging record updated", "Ok");

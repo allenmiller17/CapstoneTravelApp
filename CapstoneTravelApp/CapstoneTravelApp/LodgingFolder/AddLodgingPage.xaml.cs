@@ -55,7 +55,7 @@ namespace CapstoneTravelApp.LodgingFolder
             {
                 if (lodgePhoneEntry.Text != null)
                 {
-                    if (UserHelper.ValidPhoneNumber(lodgePhoneEntry.Text))
+                    if (UserHelper.PhoneCheck(lodgePhoneEntry.Text))
                     {
                         conn.Insert(newLodging);
                         await DisplayAlert("Notice", "Lodging record created", "Ok");

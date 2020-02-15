@@ -104,7 +104,7 @@ namespace CapstoneTravelApp
                 var newRes = new Dining_Table();
                 newRes.ResName = "Carnation Cafe";
                 newRes.ResAddress = "Disneyland Park, Anaheim, CA 92802";
-                newRes.ResPhone = 7147813463;
+                newRes.ResPhone = "(714)781-3463";
                 newRes.ResNotes = "Dinner with my wife";
                 newRes.ResNotifications = 1;
                 newRes.TripId = newTrip2.TripId;
@@ -114,7 +114,7 @@ namespace CapstoneTravelApp
                 var newRes2 = new Dining_Table();
                 newRes2.ResName = "Rainforest Cafe";
                 newRes2.ResAddress = "123 Downtown Disney District, Anaheim, CA 92802";
-                newRes2.ResPhone = 7148665555;
+                newRes2.ResPhone = "(714)866-5555";
                 newRes2.ResNotes = "Birthday Dinner";
                 newRes2.ResNotifications = 1;
                 newRes2.TripId = newTrip2.TripId;
@@ -128,7 +128,7 @@ namespace CapstoneTravelApp
                 newActivity.EntertaninStart = new DateTime(2020, 11, 12, 08, 00, 00);
                 newActivity.EntertainEnd = new DateTime(2020, 11, 12, 23, 00, 00);
                 newActivity.EnterainAddress = "1313 Disneyland Dr, Anaheim, CA 92802";
-                newActivity.EntertainPhone = 7147814636;
+                newActivity.EntertainPhone = "(714)781-4636";
                 newActivity.EntertainNotes = "Get to the park at 7:00";
                 newActivity.EntertainNotifications = 1;
                 newActivity.TripId = newTrip2.TripId;
@@ -140,7 +140,7 @@ namespace CapstoneTravelApp
                 newActivity2.EntertaninStart = new DateTime(2020, 11, 14, 07, 00, 00);
                 newActivity2.EntertainEnd = new DateTime(2020, 11, 15, 00, 00, 00);
                 newActivity2.EnterainAddress = "1313 Disneyland Dr, Anaheim, CA 92802";
-                newActivity2.EntertainPhone = 7147814636;
+                newActivity2.EntertainPhone = "(714)781-4636";
                 newActivity2.EntertainNotes = "Get to the park at 6:00";
                 newActivity2.EntertainNotifications = 1;
                 newActivity2.TripId = newTrip2.TripId;
@@ -181,7 +181,7 @@ namespace CapstoneTravelApp
                 var newLodge = new Lodging_Table();
                 newLodge.LodgeName = "Best Western Plus Pavilions";
                 newLodge.LodgeLocation = "1176 W Katella Ave, Anaheim, CA 92802";
-                newLodge.LodgePhone = "7147760140";
+                newLodge.LodgePhone = "(714)776-0140";
                 newLodge.LodgeStart = new DateTime(2020, 11, 12, 11, 00, 00);
                 newLodge.LodgeEnd = new DateTime(2020, 11, 15, 9, 00, 00);
                 newLodge.LodgeNotifications = 1;
@@ -192,7 +192,7 @@ namespace CapstoneTravelApp
                 var newLodge1 = new Lodging_Table();
                 newLodge1.LodgeName = "Best Western Plus Stovals";
                 newLodge1.LodgeLocation = "1100 W Katella Ave, Anaheim, CA 92802";
-                newLodge1.LodgePhone = "7147765555";
+                newLodge1.LodgePhone = "(714)776-5555";
                 newLodge1.LodgeStart = new DateTime(2020, 11, 15, 11, 00, 00);
                 newLodge1.LodgeEnd = new DateTime(2020, 11, 17, 9, 00, 00);
                 newLodge1.LodgeNotifications = 0;
@@ -208,9 +208,9 @@ namespace CapstoneTravelApp
                 newRental.ConfNumber = "1E0C2G";
                 newRental.PickUpDate = new DateTime(2020, 11, 12);
                 newRental.ReturnDate = new DateTime(2020, 11, 17);
-                newRental.PickUpLocation = "LAX";
-                newRental.ReturnLocation = "LAX";
-                newRental.RentalPhone = "5558885555";
+                newRental.PickUpLocation = "Los Angeles International Airport";
+                newRental.ReturnLocation = "Los Angeles International Airport";
+                newRental.RentalPhone = "(555)888-5555";
                 newRental.RentalNotifications = 1;
                 newRental.TripId = newTrip2.TripId;
 

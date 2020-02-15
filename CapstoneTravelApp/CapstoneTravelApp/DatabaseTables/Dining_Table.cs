@@ -18,8 +18,7 @@ namespace CapstoneTravelApp.DatabaseTables
 
         public DateTime ResDate { get; set; }
 
-        [MaxLength(10)]
-        public long ResPhone { get; set; }
+        public string ResPhone { get; set; }
 
         
         public string ResNotes { get; set; }

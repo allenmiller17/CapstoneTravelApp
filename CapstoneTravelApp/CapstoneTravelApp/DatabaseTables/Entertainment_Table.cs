@@ -22,8 +22,7 @@ namespace CapstoneTravelApp.DatabaseTables
 
         public string EnterainAddress { get; set; }
 
-        [MaxLength(10)]
-        public long EntertainPhone { get; set; }
+        public string EntertainPhone { get; set; }
 
 
         public string EntertainNotes { get; set; }

@@ -32,7 +32,7 @@ namespace CapstoneTravelApp.LodgingFolder
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 		}
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             conn.CreateTable<Lodging_Table>();
             var lodgingList = conn.Query<Lodging_Table>($"SELECT * FROM Lodging_Table WHERE LodgeId = '{_currentLodging.LodgeId}'");
@@ -44,6 +44,41 @@ namespace CapstoneTravelApp.LodgingFolder
             checkInDateLabel.Text = _currentLodging.LodgeStart.ToString("MM/dd hh:mm tt");
             checkOutDateLabel.Text = _currentLodging.LodgeEnd.ToString("MM/dd hh:mm tt");
             notificationSwitch.IsToggled = _currentLodging.LodgeNotifications == 1 ? true : false;
+
+
+            //Open phone number in phone app
+            lodgingPhoneLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            {
+                Command = new Command(() =>
+                {
+                    UserHelper.PlacePhoneCall(lodgingPhoneLabel.Text);
+                })
+            });
+
+            //Open Address in maps
+            var address = lodgingLocLabel.Text;
+            var location = await Geocoding.GetLocationsAsync(address);
+            var _location = location?.FirstOrDefault();
+
+            lodgingLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            {
+                Command = new Command(() =>
+                {
+                    try
+                    {
+                        if (location != null)
+                        {
+                            var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                            Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        DisplayAlert("Warning", "This function is not currently available", "Ok");
+                    }
+                })
+            });
 
             base.OnAppearing();
         }

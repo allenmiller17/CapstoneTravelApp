@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using CapstoneTravelApp.HelperFolders;
+using System.Collections.ObjectModel;
+using CapstoneTravelApp.TransportationFolder;
+using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.TransportationFolder
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TransportationNotesPage : ContentPage
 	{
-		public TransportationNotesPage ()
+		public TransportationNotesPage (Transportation_Table _currentRental)
 		{
 			InitializeComponent ();
 		}

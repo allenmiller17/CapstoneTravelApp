@@ -4,6 +4,8 @@ using System.Linq;
 using Xamarin.Forms;
 using CapstoneTravelApp.DatabaseTables;
 using System;
+using System.Text.RegularExpressions;
+using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.HelperFolders
 {
@@ -94,28 +96,43 @@ namespace CapstoneTravelApp.HelperFolders
                 return false;
         }
 
-        public static bool ValidPhoneNumber (string phone)
+       public static bool PhoneCheck(string strPhone)
         {
-            if (phone.Length != 10)
-            {
-                return false;
-            }
-
-
-            //Exception Handeling
-            //Checks to see if there are extra characters in the number and returns an error message if there are
+            //Checks Phone number formatting
+            string MatchPhoneNumberPattern = "^(?([0-9]{3}))?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$";
             try
             {
-                var IntPhone = Convert.ToInt64(phone);
+                if (strPhone != null)
+                {
+                    return Regex.IsMatch(strPhone, MatchPhoneNumberPattern);
+                }
+                else return false;
             }
-            catch (FormatException)
+            catch (Exception)
             {
 
                 return false;
             }
-
-            return true;
         }
 
+        public static void PlacePhoneCall(string phoneNumber)
+        {
+            try
+            {
+                PhoneDialer.Open(phoneNumber);
+            }
+            catch (ArgumentNullException anEx)
+            {
+                // Number was null or white space
+            }
+            catch (FeatureNotSupportedException ex)
+            {
+               
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred.
+            }
+        }
     }
 }
