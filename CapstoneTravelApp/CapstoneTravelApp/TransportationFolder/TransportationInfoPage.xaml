@@ -17,7 +17,7 @@
                             <Label x:Name="transportationPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
                         </StackLayout>
                         <StackLayout>
-                            <Label Text="Pick-up Address: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label Text="Pick-up Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
                             <Label x:Name="pickupLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
@@ -25,7 +25,7 @@
                             <Label x:Name="pickupDateLabel" HorizontalOptions="End" FontSize="Medium"/>
                         </StackLayout>
                         <StackLayout>
-                            <Label Text="Drop-off Address: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label Text="Drop-off Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
                             <Label x:Name="dropoffLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">

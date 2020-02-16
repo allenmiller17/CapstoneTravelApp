@@ -102,11 +102,12 @@ namespace CapstoneTravelApp.HelperFolders
             string MatchPhoneNumberPattern = "^(?([0-9]{3}))?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$";
             try
             {
-                if (strPhone != null)
+                if (string.IsNullOrEmpty(strPhone))
                 {
-                    return Regex.IsMatch(strPhone, MatchPhoneNumberPattern);
+                    return false;
                 }
-                else return false;
+                var r = new Regex(@"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$");
+                return r.IsMatch(strPhone);
             }
             catch (Exception)
             {

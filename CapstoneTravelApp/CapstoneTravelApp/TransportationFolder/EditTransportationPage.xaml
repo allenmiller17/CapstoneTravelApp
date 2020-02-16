@@ -9,29 +9,21 @@
                     <StackLayout>
                         <Entry x:Name="rentalNameEntry" Placeholder="Transportation Name" HorizontalOptions="Fill"/>
                         <Entry x:Name="rentalConfEntry" Placeholder="Confirmation Number" HorizontalOptions="Fill"/>
-                        <Entry x:Name="rentalPhoneEntry" Placeholder="Phone" HorizontalOptions="Fill" Keyboard="Telephone"/>
+                        <Entry x:Name="rentalPhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill" Keyboard="Telephone"/>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Pickup Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <DatePicker x:Name="pickupDatePicker" HorizontalOptions="Fill"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Pickup Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Label Text="Pickup: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <DatePicker x:Name="pickupDatePicker" HorizontalOptions="CenterAndExpand"/>
                             <TimePicker x:Name="pickupTimePicker" HorizontalOptions="Fill"/>
                         </StackLayout>
                         <StackLayout>
-                            <Label Text="Pickup Location: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <Entry x:Name="pickupLocEntry" Placeholder="Pickup Location" HorizontalOptions="Fill"/>
+                            <Entry x:Name="pickupLocEntry" Placeholder="Pickup Location" HorizontalOptions="Fill" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Drop off Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <DatePicker x:Name="dropOffDatePicker" HorizontalOptions="Fill"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Drop off Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Label Text="Drop off: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <DatePicker x:Name="dropOffDatePicker" HorizontalOptions="CenterAndExpand"/>
                             <TimePicker x:Name="dropOffTimePicker" HorizontalOptions="Fill"/>
                         </StackLayout>
                         <StackLayout>
-                            <Label Text="Drop off Location: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
                             <Entry x:Name="dropOffLocEntry" Placeholder="Drop Off Location" HorizontalOptions="Fill"/>
                         </StackLayout>
                         <Label Text="Transportation Reminders" HorizontalOptions="Start" FontSize="Medium"/>

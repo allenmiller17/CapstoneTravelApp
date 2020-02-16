@@ -10,7 +10,7 @@
                         <StackLayout>
                             <Entry x:Name="lodgeNameEntry" Placeholder="Lodging Name" HorizontalOptions="Fill"/>
                             <Entry x:Name="lodgeLocEntry" Placeholder="Address" HorizontalOptions="Fill"/>
-                            <Entry x:Name="lodgePhoneEntry" Placeholder="Phone ex: 5555555555" HorizontalOptions="Fill"/>
+                            <Entry x:Name="lodgePhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill"/>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Check-in Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
                                 <DatePicker x:Name="checkInDatePicker" HorizontalOptions="Fill"/>
