@@ -30,6 +30,8 @@ namespace CapstoneTravelApp.DatabaseTables
 
         public string RentalPhone { get; set; }
 
+        public string RentalNotes { get; set; }
+
         [NotNull]
         public int TripId { get; set; }
 
