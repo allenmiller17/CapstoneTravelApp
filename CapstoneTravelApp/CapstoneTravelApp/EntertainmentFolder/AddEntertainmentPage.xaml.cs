@@ -12,7 +12,7 @@ namespace CapstoneTravelApp.EntertainmentFolder
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AddEntertainmentPage : ContentPage
 	{
-		public AddEntertainmentPage ()
+		public AddEntertainmentPage (DatabaseTables.Trips_Table _currentTrip)
 		{
 			InitializeComponent ();
 		}

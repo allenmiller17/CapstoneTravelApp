@@ -20,7 +20,7 @@ namespace CapstoneTravelApp
 	{
         private SQLiteConnection conn;
         Trips_Table _currentTrip;
-        public ObservableCollection<Lodging_Table> lodgingList;
+        private ObservableCollection<Lodging_Table> lodgingList;
 		public HotelSelectPage (Trips_Table CurrentTrip)
 		{
 			InitializeComponent ();
