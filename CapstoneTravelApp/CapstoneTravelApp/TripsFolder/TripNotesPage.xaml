@@ -4,9 +4,18 @@
              x:Class="CapstoneTravelApp.TripNotesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Frame HasShadow="True" Margin="10,0">
+                    <StackLayout>
+                        <Editor Placeholder="Add Trip Notes Here ex: Party Size" x:Name="NotesEditor" MaxLength="10000" AutoSize="TextChanges"
+                                HorizontalOptions="FillAndExpand" Margin="10,0"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout>
+                <Button x:Name="menuButton" Text="Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" 
+                        FontSize="Medium" CornerRadius="10"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

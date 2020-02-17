@@ -12,7 +12,7 @@ namespace CapstoneTravelApp.EntertainmentFolder
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditEntertainmentPage : ContentPage
 	{
-		public EditEntertainmentPage ()
+		public EditEntertainmentPage (DatabaseTables.Entertainment_Table _currentActivity)
 		{
 			InitializeComponent ();
 		}

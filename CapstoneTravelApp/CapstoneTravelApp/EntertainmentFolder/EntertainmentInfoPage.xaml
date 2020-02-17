@@ -27,14 +27,14 @@
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Entertainment Reminders" HorizontalOptions="End" FontSize="Medium"/>
-                            <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch" Toggled="NotificationSwitch_Toggled"/>
+                            <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch"/>
                         </StackLayout>
-                        <Button x:Name="lodgingNotesButton" Text="Lodging Notes" Clicked="LodgingNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
+                        <Button x:Name="activityNotesButton" Text="Entertainment Notes" Clicked="activityNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
             <StackLayout VerticalOptions="EndAndExpand">
-                <Button x:Name="menuButton" Text="Lodging Options" Clicked="menuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
+                <Button x:Name="menuButton" Text="Entertainment Options" Clicked="menuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

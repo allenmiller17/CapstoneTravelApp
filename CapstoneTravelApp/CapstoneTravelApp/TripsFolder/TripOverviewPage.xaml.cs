@@ -66,7 +66,7 @@ namespace CapstoneTravelApp
 
         private async void NotesButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TripNotesPage(CurrentTrip));
+            await Navigation.PushModalAsync(new TripNotesPage(CurrentTrip));
         }
 
         private async void OptionsButton_Clicked(object sender, EventArgs e)
