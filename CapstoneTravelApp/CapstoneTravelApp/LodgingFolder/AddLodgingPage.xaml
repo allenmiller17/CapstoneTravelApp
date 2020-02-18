@@ -1,41 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.LodgingFolder.AddLodging">
+             x:Class="CapstoneTravelApp.LodgingFolder.AddLodging" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <StackLayout>
-                <Frame HasShadow="True" Margin="10,0">
-                    <StackLayout>
+                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+                <StackLayout>
+                    <Frame HasShadow="True" Margin="10,0">
                         <StackLayout>
-                            <Entry x:Name="lodgeNameEntry" Placeholder="Lodging Name" HorizontalOptions="Fill"/>
-                            <Entry x:Name="lodgeLocEntry" Placeholder="Address" HorizontalOptions="Fill"/>
-                            <Entry x:Name="lodgePhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill"/>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Check-in Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                <DatePicker x:Name="checkInDatePicker" HorizontalOptions="Fill"/>
+                            <StackLayout>
+                                <Entry x:Name="lodgeNameEntry" Placeholder="Lodging Name" HorizontalOptions="Fill"/>
+                                <Entry x:Name="lodgeLocEntry" Placeholder="Address" HorizontalOptions="Fill"/>
+                                <Entry x:Name="lodgePhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Check-in Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <DatePicker x:Name="checkInDatePicker" HorizontalOptions="Fill"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Check-in Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <TimePicker x:Name="checkInTimePicker" HorizontalOptions="Fill"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Check-out Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <DatePicker x:Name="checkOutDatePicker" HorizontalOptions="Fill"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Check-out Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <TimePicker x:Name="checkOutTimePicker" HorizontalOptions="Fill"/>
+                                </StackLayout>
+                                <Label Text="Lodging Reminders" HorizontalOptions="Start" FontSize="Medium"/>
+                                <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
                             </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Check-in Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                <TimePicker x:Name="checkInTimePicker" HorizontalOptions="Fill"/>
+                            <StackLayout>
+                                <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10,10" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
                             </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Check-out Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                <DatePicker x:Name="checkOutDatePicker" HorizontalOptions="Fill"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Check-out Time: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                <TimePicker x:Name="checkOutTimePicker" HorizontalOptions="Fill"/>
-                            </StackLayout>
-                            <Label Text="Lodging Reminders" HorizontalOptions="Start" FontSize="Medium"/>
-                            <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
                         </StackLayout>
-                        <StackLayout>
-                            <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

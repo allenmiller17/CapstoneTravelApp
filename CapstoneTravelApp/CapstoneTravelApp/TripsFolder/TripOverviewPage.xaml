@@ -1,31 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.TripOverviewPage">
+             x:Class="CapstoneTravelApp.TripOverviewPage" BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
+            <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
             <StackLayout x:Name="UserTrips">
                 <Frame HasShadow="True" x:Name="FlightsFrame" Margin="10,0,10,0">
                     <StackLayout >
-                        <Button Text="Flights" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
+                        <Button Text="Flights" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10" BackgroundColor="#70C1B3"
                                 x:Name="flightsButton" Clicked="FlightsButton_Clicked"/>
-                        <Button Text="Lodging" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
+                        <Button Text="Lodging" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10" BackgroundColor="#70C1B3"
                                 x:Name="lodgingButton" Clicked="LodgingButton_Clicked"/>
-                        <Button Text="Transportation" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
+                        <Button Text="Transportation" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10" BackgroundColor="#70C1B3"
                                 x:Name="transportButton" Clicked="TransportButton_Clicked"/>
-                        <Button Text="Dining" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
+                        <Button Text="Dining" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10" BackgroundColor="#70C1B3"
                                 x:Name="diningButton" Clicked="DiningButton_Clicked"/>
-                        <Button Text="Entertainment" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
+                        <Button Text="Entertainment" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10" BackgroundColor="#70C1B3"
                                 x:Name="entertainButton" Clicked="EntertainButton_Clicked"/>
-                        <Button Text="Notes" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10"
+                        <Button Text="Notes" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Margin="10,0" CornerRadius="10" BackgroundColor="#70C1B3"
                                 x:Name="notesButton" Clicked="NotesButton_Clicked"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
-            <StackLayout>
-                <Button x:Name="optionsButton" Text="Trip Options" Clicked="OptionsButton_Clicked" FontSize="Medium" FontAttributes="Bold" Margin="10, 10"
-                        CornerRadius="10"/>
+            <Button x:Name="optionsButton" Text="Trip Options" Clicked="OptionsButton_Clicked" FontSize="Medium" Margin="10, 10" BackgroundColor="#FFF066"
+                        CornerRadius="10" VerticalOptions="EndAndExpand"/>
             </StackLayout>
-        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

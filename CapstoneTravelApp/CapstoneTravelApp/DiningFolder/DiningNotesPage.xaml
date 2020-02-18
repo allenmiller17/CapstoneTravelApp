@@ -1,21 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.DiningFolder.DiningNotesPage">
+             x:Class="CapstoneTravelApp.DiningFolder.DiningNotesPage" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <StackLayout>
-                <Frame HasShadow="True" Margin="10,0">
-                    <StackLayout>
-                        <Editor Placeholder="Add Dining Notes Here ex: Reservation Information" x:Name="NotesEditor" MaxLength="10000" AutoSize="TextChanges"
+                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+                <StackLayout>
+                    <Frame HasShadow="True" Margin="10,0">
+                        <StackLayout>
+                            <Editor Placeholder="Add Dining Notes Here ex: Reservation Information" x:Name="NotesEditor" MaxLength="10000" AutoSize="TextChanges"
                                 HorizontalOptions="FillAndExpand" Margin="10,0"/>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <StackLayout>
-                <Button x:Name="menuButton" Text="Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" 
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Button x:Name="menuButton" Text="Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" BackgroundColor="#FFF066" 
                         FontSize="Medium" CornerRadius="10"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

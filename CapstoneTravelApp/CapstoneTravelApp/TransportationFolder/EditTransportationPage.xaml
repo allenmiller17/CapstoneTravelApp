@@ -1,39 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.TransportationFolder.EditTransportationPage">
+             x:Class="CapstoneTravelApp.TransportationFolder.EditTransportationPage" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
-            <Frame HasShadow="True" Margin="10,0">
-                <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+                <Frame HasShadow="True" Margin="10,0">
                     <StackLayout>
-                        <Entry x:Name="rentalNameEntry" Placeholder="Transportation Name" HorizontalOptions="Fill"/>
-                        <Entry x:Name="rentalConfEntry" Placeholder="Confirmation Number" HorizontalOptions="Fill"/>
-                        <Entry x:Name="rentalPhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill" Keyboard="Telephone"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Pickup: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <DatePicker x:Name="pickupDatePicker" HorizontalOptions="CenterAndExpand"/>
-                            <TimePicker x:Name="pickupTimePicker" HorizontalOptions="Fill"/>
+                        <StackLayout>
+                            <Entry x:Name="rentalNameEntry" Placeholder="Transportation Name" HorizontalOptions="Fill"/>
+                            <Entry x:Name="rentalConfEntry" Placeholder="Confirmation Number" HorizontalOptions="Fill"/>
+                            <Entry x:Name="rentalPhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill" Keyboard="Telephone"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Pickup: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <DatePicker x:Name="pickupDatePicker" HorizontalOptions="CenterAndExpand"/>
+                                <TimePicker x:Name="pickupTimePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <StackLayout>
+                                <Entry x:Name="pickupLocEntry" Placeholder="Pickup Location" HorizontalOptions="Fill" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Drop off: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                <DatePicker x:Name="dropOffDatePicker" HorizontalOptions="CenterAndExpand"/>
+                                <TimePicker x:Name="dropOffTimePicker" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <StackLayout>
+                                <Entry x:Name="dropOffLocEntry" Placeholder="Drop Off Location" HorizontalOptions="Fill"/>
+                            </StackLayout>
+                            <Label Text="Transportation Reminders" HorizontalOptions="Start" FontSize="Medium"/>
+                            <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
                         </StackLayout>
                         <StackLayout>
-                            <Entry x:Name="pickupLocEntry" Placeholder="Pickup Location" HorizontalOptions="Fill" />
+                            <Button x:Name="saveButton" Text="Save" Clicked="saveButton_Clicked" Margin="10,10" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Drop off: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <DatePicker x:Name="dropOffDatePicker" HorizontalOptions="CenterAndExpand"/>
-                            <TimePicker x:Name="dropOffTimePicker" HorizontalOptions="Fill"/>
-                        </StackLayout>
-                        <StackLayout>
-                            <Entry x:Name="dropOffLocEntry" Placeholder="Drop Off Location" HorizontalOptions="Fill"/>
-                        </StackLayout>
-                        <Label Text="Transportation Reminders" HorizontalOptions="Start" FontSize="Medium"/>
-                        <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
                     </StackLayout>
-                    <StackLayout>
-                        <Button x:Name="saveButton" Text="Save" Clicked="saveButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
-        </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

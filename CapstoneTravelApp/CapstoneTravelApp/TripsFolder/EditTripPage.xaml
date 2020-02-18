@@ -1,31 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.TripsFolder.EditTripPage">
+             x:Class="CapstoneTravelApp.TripsFolder.EditTripPage" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <StackLayout>
-                <Frame HasShadow="True" Margin="10, 0">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Entry x:Name="tripNameEntry" Placeholder="Trip Name" HorizontalOptions="FillAndExpand"/>
+                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+                <StackLayout>
+                    <Frame HasShadow="True" Margin="10, 0">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Entry x:Name="tripNameEntry" Placeholder="Trip Name" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="startDateLabel" Text="Start: " HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium"/>
+                                <DatePicker x:Name="startDatePicker" HorizontalOptions="Start"/>
+                                <Label x:Name="endDateLabel" Text="End: " HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Medium"/>
+                                <DatePicker x:Name="endDatePicker" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Trip Reminders: " FontSize="Medium" HorizontalOptions="Start"/>
+                                <Switch HorizontalOptions="StartAndExpand" x:Name="notificationsSwitch"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label x:Name="startDateLabel" Text="Start: " HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium"/>
-                            <DatePicker x:Name="startDatePicker" HorizontalOptions="Start"/>
-                            <Label x:Name="endDateLabel" Text="End: " HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Medium"/>
-                            <DatePicker x:Name="endDatePicker" HorizontalOptions="EndAndExpand"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Trip Reminders: " FontSize="Medium" HorizontalOptions="Start"/>
-                            <Switch HorizontalOptions="StartAndExpand" x:Name="notificationsSwitch"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+                </StackLayout>
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10, 10" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
+                </StackLayout>
             </StackLayout>
-            <StackLayout VerticalOptions="EndAndExpand">
-                <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10, 10" FontSize="Medium" CornerRadius="10"/>
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

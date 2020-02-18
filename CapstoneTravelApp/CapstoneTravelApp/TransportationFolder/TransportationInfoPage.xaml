@@ -1,48 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.TransportationFolder.TransportationInfoPage">
+             x:Class="CapstoneTravelApp.TransportationFolder.TransportationInfoPage" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <StackLayout>
-                <Frame HasShadow="True" Margin="10,0">
-                    <StackLayout>
-                        <Label x:Name="rentalNameLabel" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold"/>
-                        <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"/>
+                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+                <StackLayout>
+                    <Frame HasShadow="True" Margin="10,0">
                         <StackLayout>
-                            <Label x:Name="confNumberLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label x:Name="rentalNameLabel" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold"/>
+                            <BoxView Color="#247BA0" HeightRequest="2" HorizontalOptions="Fill"/>
+                            <StackLayout>
+                                <Label x:Name="confNumberLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Phone: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="transportationPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Pick-up Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="pickupLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Pick-up Date: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="pickupDateLabel" HorizontalOptions="End" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Drop-off Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="dropoffLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Return Date: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="returnDateLabel" HorizontalOptions="End" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Transportation Reminders" HorizontalOptions="End" FontSize="Medium"/>
+                                <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch" Toggled="NotificationSwitch_Toggled"/>
+                            </StackLayout>
+                            <Button x:Name="transportationNotesButton" Text="Lodging Notes" Clicked="TransportationNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10" BackgroundColor="#70C1B3"/>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Phone: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="transportationPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
-                        </StackLayout>
-                        <StackLayout>
-                            <Label Text="Pick-up Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="pickupLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Pick-up Date: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="pickupDateLabel" HorizontalOptions="End" FontSize="Medium"/>
-                        </StackLayout>
-                        <StackLayout>
-                            <Label Text="Drop-off Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="dropoffLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Return Date: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="returnDateLabel" HorizontalOptions="End" FontSize="Medium"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Transportation Reminders" HorizontalOptions="End" FontSize="Medium"/>
-                            <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch" Toggled="NotificationSwitch_Toggled"/>
-                        </StackLayout>
-                        <Button x:Name="transportationNotesButton" Text="Lodging Notes" Clicked="TransportationNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+                </StackLayout>
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <Button x:Name="menuButton" Text="Lodging Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
+                </StackLayout>
             </StackLayout>
-            <StackLayout VerticalOptions="EndAndExpand">
-                <Button x:Name="menuButton" Text="Lodging Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

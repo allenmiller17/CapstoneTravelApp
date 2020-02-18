@@ -1,37 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.DiningFolder.DiningInfoPage">
+             x:Class="CapstoneTravelApp.DiningFolder.DiningInfoPage" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <StackLayout>
-                <Frame HasShadow="True" Margin="10,0">
-                    <StackLayout>
-                        <Label x:Name="DiningNameLabel" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold"/>
-                        <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"/>
+                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+                <StackLayout>
+                    <Frame HasShadow="True" Margin="10,0">
                         <StackLayout>
-                            <Label Text="Address: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="DiningLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            <Label x:Name="DiningNameLabel" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold"/>
+                            <BoxView Color="#247BA0" HeightRequest="2" HorizontalOptions="Fill"/>
+                            <StackLayout>
+                                <Label Text="Address: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="DiningLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Phone: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="DiningPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Reservation: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="ResDateLabel" HorizontalOptions="End" FontSize="Medium"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Dining Reminders" HorizontalOptions="End" FontSize="Medium"/>
+                                <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch" Toggled="NotificationSwitch_Toggled"/>
+                            </StackLayout>
+                            <Button x:Name="DiningNotesButton" Text="Dining Notes" Clicked="DiningNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10" BackgroundColor="#70C1B3"/>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Phone: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="DiningPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Reservation: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                            <Label x:Name="ResDateLabel" HorizontalOptions="End" FontSize="Medium"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Dining Reminders" HorizontalOptions="End" FontSize="Medium"/>
-                            <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch" Toggled="NotificationSwitch_Toggled"/>
-                        </StackLayout>
-                        <Button x:Name="DiningNotesButton" Text="Dining Notes" Clicked="DiningNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+                </StackLayout>
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <Button x:Name="menuButton" Text="Dining Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
+                </StackLayout>
             </StackLayout>
-            <StackLayout VerticalOptions="EndAndExpand">
-                <Button x:Name="menuButton" Text="Dining Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10"/>
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

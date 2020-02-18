@@ -1,30 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.DiningFolder.AddDiningPage">
+             x:Class="CapstoneTravelApp.DiningFolder.AddDiningPage" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <StackLayout>
-                <Frame HasShadow="True" Margin="10,0">
-                    <StackLayout>
+                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+                <StackLayout>
+                    <Frame HasShadow="True" Margin="10,0">
                         <StackLayout>
-                            <Entry x:Name="DiningNameEntry" Placeholder="Lodging Name" HorizontalOptions="Fill"/>
-                            <Entry x:Name="DiningLocEntry" Placeholder="Address" HorizontalOptions="Fill"/>
-                            <Entry x:Name="DiningPhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill"/>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                <DatePicker x:Name="DiningDatePicker" HorizontalOptions="Center"/>
-                                <TimePicker x:Name="DiningTimePicker" HorizontalOptions="Fill"/>
+                            <StackLayout>
+                                <Entry x:Name="DiningNameEntry" Placeholder="Lodging Name" HorizontalOptions="Fill"/>
+                                <Entry x:Name="DiningLocEntry" Placeholder="Address" HorizontalOptions="Fill"/>
+                                <Entry x:Name="DiningPhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Date: " FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <DatePicker x:Name="DiningDatePicker" HorizontalOptions="Center"/>
+                                    <TimePicker x:Name="DiningTimePicker" HorizontalOptions="Fill"/>
+                                </StackLayout>
+                                <Label Text="Dining Reminders" HorizontalOptions="Start" FontSize="Medium"/>
+                                <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
                             </StackLayout>
-                            <Label Text="Dining Reminders" HorizontalOptions="Start" FontSize="Medium"/>
-                            <Switch HorizontalOptions="Start" x:Name="notificationSwitch"/>
+                            <StackLayout>
+                                <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <Button x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

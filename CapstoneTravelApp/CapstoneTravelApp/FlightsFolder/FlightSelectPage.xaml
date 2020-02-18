@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.FlightSelectPage">
+             x:Class="CapstoneTravelApp.FlightSelectPage" BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
+            <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
             <StackLayout x:Name="UserTrips">
                 <StackLayout>
                     <StackLayout>
@@ -26,7 +27,7 @@
                                                             <Label  Text="{Binding DepartGate}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
                                                         </StackLayout>
                                                     </StackLayout>
-                                                    <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill"/>
+                                                    <BoxView Color="#247BA0" HeightRequest="2" HorizontalOptions="Fill"/>
                                                     <StackLayout Orientation="Horizontal">
                                                         <Label Text="{Binding DepartTime, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="StartAndExpand"/>
                                                         <Label Text="{Binding ArriveTime, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="EndAndExpand"/>
@@ -46,7 +47,7 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout>
-                <Button x:Name="menuButton" Text="Options" Clicked="MenuButton_Clicked" Margin="10,0" FontSize="Medium"/>
+                <Button x:Name="menuButton" Text="Options" Clicked="MenuButton_Clicked" Margin="10,10" CornerRadius="10" FontSize="Medium" BackgroundColor="#FFF066"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
