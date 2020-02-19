@@ -1,35 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using SQLite;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.DiningFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.DiningFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddDiningPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddDiningPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Trips_Table currentTrip;
 
-		public AddDiningPage (Trips_Table _currentTrip)
-		{
-			InitializeComponent ();
+        public AddDiningPage(Trips_Table _currentTrip)
+        {
+            InitializeComponent();
             currentTrip = _currentTrip;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
             Title = "Add Dining Reservation";
-		}
+        }
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {

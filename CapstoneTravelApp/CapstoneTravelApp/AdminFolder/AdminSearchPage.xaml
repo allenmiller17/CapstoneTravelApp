@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CapstoneTravelApp.AdminFolder.AdminSearchPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+            <StackLayout x:Name="Users">
+                <StackLayout>
+                    <SearchBar TextChanged="SearchBar_TextChanged" Placeholder="Search by user last name"/>
+                </StackLayout>
+                <ListView x:Name="UserListView" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell IsEnabled="True">
+                                <StackLayout Padding="10" Orientation="Vertical">
+                                    <Frame HasShadow="True">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label x:Name="NameLabel" Text="{Binding LastName}" FontSize="Medium" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                                <Label Text=", " FontSize="Medium" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                                <Label x:Name="FirstNameLabel" Text="{Binding FirstName}" FontSize="Medium" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                            <BoxView Color="#247BA0" HeightRequest="2" HorizontalOptions="Fill"/>
+                                            <Label x:Name="EmailLabel" Text="{Binding UserEmail}" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button x:Name="AddAdminButton" Text="Add Administrator" Clicked="AddAdminButton_Clicked" Margin="10,0" FontSize="Medium" HorizontalOptions="FillAndExpand" CornerRadius="10"
+                            BackgroundColor="#FFF066"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

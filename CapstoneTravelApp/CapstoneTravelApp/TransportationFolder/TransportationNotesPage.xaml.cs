@@ -1,29 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.TransportationFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.TransportationFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TransportationNotesPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TransportationNotesPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Transportation_Table currentRental;
 
-		public TransportationNotesPage (Transportation_Table _currentRental)
-		{
-			InitializeComponent ();
+        public TransportationNotesPage(Transportation_Table _currentRental)
+        {
+            InitializeComponent();
             currentRental = _currentRental;
             Title = $"{currentRental.RentalName}" + " Notes";
 

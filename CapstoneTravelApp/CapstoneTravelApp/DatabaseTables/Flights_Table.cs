@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
+using System;
 namespace CapstoneTravelApp.DatabaseTables
 {
     public class Flights_Table
     {
         [SQLite.PrimaryKey, SQLite.AutoIncrement]
-        public int  FlightId { get; set; }
+        public int FlightId { get; set; }
 
         [NotNull]
         public string FlightNumber { get; set; }

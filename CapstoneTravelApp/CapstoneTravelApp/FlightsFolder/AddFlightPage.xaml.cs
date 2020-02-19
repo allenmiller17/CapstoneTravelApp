@@ -1,34 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
 
 namespace CapstoneTravelApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddFlightPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddFlightPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Trips_Table currentTrip;
 
-		public AddFlightPage (Trips_Table _currentTrip)
-		{
-			InitializeComponent ();
+        public AddFlightPage(Trips_Table _currentTrip)
+        {
+            InitializeComponent();
             Title = "Add Flight";
             currentTrip = _currentTrip;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
             conn.CreateTable<Flights_Table>();
-		}
+        }
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {

@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.TransportationFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.TransportationFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TransportationInfoPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TransportationInfoPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Transportation_Table _currentRental;
         private ObservableCollection<Transportation_Table> rentalList;
-		public TransportationInfoPage (Transportation_Table currentRental)
-		{
-			InitializeComponent ();
+        public TransportationInfoPage(Transportation_Table currentRental)
+        {
+            InitializeComponent();
 
             _currentRental = currentRental;
 
@@ -35,7 +30,7 @@ namespace CapstoneTravelApp.TransportationFolder
             //tapGestureRecognizer.Tapped += (s, e) => { Command cmd = new Command(() => { UserHelper.PlacePhoneCall(transportationPhoneLabel.Text); }); };
 
 
-		}
+        }
 
         protected async override void OnAppearing()
         {
@@ -82,7 +77,7 @@ namespace CapstoneTravelApp.TransportationFolder
                     catch (Exception)
                     {
 
-                        DisplayAlert("Warning", "This function is not currently available","Ok");
+                        DisplayAlert("Warning", "This function is not currently available", "Ok");
                     }
                 })
             });

@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.DiningFolder;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.DiningFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class DiningSelectPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class DiningSelectPage : ContentPage
+    {
         private SQLiteConnection conn;
         Trips_Table _currentTrip;
         public ObservableCollection<Dining_Table> diningList;
 
-		public DiningSelectPage (Trips_Table CurrentTrip)
-		{
-			InitializeComponent ();
+        public DiningSelectPage(Trips_Table CurrentTrip)
+        {
+            InitializeComponent();
             _currentTrip = CurrentTrip;
 
             Title = "Select Dining";

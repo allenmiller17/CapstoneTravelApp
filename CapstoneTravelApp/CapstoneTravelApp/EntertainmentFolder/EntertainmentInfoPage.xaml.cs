@@ -1,44 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.EntertainmentFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.EntertainmentFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EntertainmentInfoPage : ContentPage
-	{
-		private SQLiteConnection conn;
-		private Entertainment_Table _currentActivity;
-		private ObservableCollection<Entertainment_Table> _activityList;
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class EntertainmentInfoPage : ContentPage
+    {
+        private SQLiteConnection conn;
+        private Entertainment_Table _currentActivity;
+        private ObservableCollection<Entertainment_Table> _activityList;
 
-		public EntertainmentInfoPage (Entertainment_Table currentActivity)
-		{
-			InitializeComponent ();
-			_currentActivity = currentActivity;
-			Title = _currentActivity.EntertainName;
-			conn = DependencyService.Get<ITravelApp_db>().GetConnection();
+        public EntertainmentInfoPage(Entertainment_Table currentActivity)
+        {
+            InitializeComponent();
+            _currentActivity = currentActivity;
+            Title = _currentActivity.EntertainName;
+            conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
-		}
+        }
 
-		protected async override void OnAppearing()
-		{
-			conn.CreateTable<Entertainment_Table>();
-			var activityList = conn.Query<Entertainment_Table>($"SELECT * FROM Entertainment_Table WHERE TripId = '{_currentActivity.TripId}'");
-			_activityList = new ObservableCollection<Entertainment_Table>(activityList);
+        protected async override void OnAppearing()
+        {
+            conn.CreateTable<Entertainment_Table>();
+            var activityList = conn.Query<Entertainment_Table>($"SELECT * FROM Entertainment_Table WHERE TripId = '{_currentActivity.TripId}'");
+            _activityList = new ObservableCollection<Entertainment_Table>(activityList);
 
-			activityNameLabel.Text = _currentActivity.EntertainName;
-			activityLocLabel.Text = _currentActivity.EnterainAddress;
+            activityNameLabel.Text = _currentActivity.EntertainName;
+            activityLocLabel.Text = _currentActivity.EnterainAddress;
             activityPhoneLabel.Text = _currentActivity.EntertainPhone;
             startDateLabel.Text = _currentActivity.EntertaninStart.ToString("MM/dd hh:mm tt");
             endDateLabel.Text = _currentActivity.EntertainEnd.ToString("MM/dd hh:mm tt");
@@ -79,10 +74,10 @@ namespace CapstoneTravelApp.EntertainmentFolder
             });
 
             base.OnAppearing();
-		}
+        }
 
-		private async void menuButton_Clicked(object sender, EventArgs e)
-		{
+        private async void MenuButton_Clicked(object sender, EventArgs e)
+        {
             var action = await DisplayActionSheet("Entertainment Options", "Cancel", "Delete Entertainment", "Edit Entertainment", "Share Entertainment");
             if (action == "Edit Entertainment")
             {
@@ -108,7 +103,7 @@ namespace CapstoneTravelApp.EntertainmentFolder
             }
         }
 
-        private async void activityNotesButton_Clicked(object sender, EventArgs e)
+        private async void ActivityNotesButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new EntertainmentNotesPage(_currentActivity));
         }

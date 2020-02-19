@@ -1,35 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using SQLite;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.LodgingFolder;
 
 namespace CapstoneTravelApp.LodgingFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddLodging : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddLodging : ContentPage
+    {
         private SQLiteConnection conn;
         private Trips_Table currentTrip;
-        UserHelper userData;
 
-		public AddLodging (Trips_Table _currentTrip)
-		{
-			InitializeComponent ();
+        public AddLodging(Trips_Table _currentTrip)
+        {
+            InitializeComponent();
             currentTrip = _currentTrip;
 
             Title = "Add Lodging";
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
-		}
+        }
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
@@ -64,7 +56,7 @@ namespace CapstoneTravelApp.LodgingFolder
                     else
                     {
                         await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
-                    } 
+                    }
                 }
                 else
                 {

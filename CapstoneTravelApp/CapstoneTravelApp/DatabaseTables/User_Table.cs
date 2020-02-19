@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 
 namespace CapstoneTravelApp.DatabaseTables
@@ -11,7 +8,8 @@ namespace CapstoneTravelApp.DatabaseTables
         [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int UserId { get; set; }
 
-        [NotNull] [Unique]
+        [NotNull]
+        [Unique]
         public string UserName { get; set; }
 
         [NotNull]
@@ -24,6 +22,6 @@ namespace CapstoneTravelApp.DatabaseTables
         [NotNull]
         public string UserEmail { get; set; }
 
-        public User_Table () {}
+        public User_Table() { }
     }
 }

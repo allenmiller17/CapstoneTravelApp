@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.FlightsFolder;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.FlightsFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class FlightSelectPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class FlightSelectPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Trips_Table _currentTrip;
         public ObservableCollection<Flights_Table> flightsList;
 
-        public FlightSelectPage (Trips_Table CurrentTrip)
-		{
-			InitializeComponent ();
+        public FlightSelectPage(Trips_Table CurrentTrip)
+        {
+            InitializeComponent();
 
             _currentTrip = CurrentTrip;
 
@@ -65,7 +60,7 @@ namespace CapstoneTravelApp
                         flights.ArriveLocation + " " + "Arrival Time: " + flights.ArriveTime +
                         "Record updated at: " + DateTime.Now.ToString("MM/dd/yy HH:mm tt") + "\n" + "\n" + "\n"
                     });
-                }       
+                }
             }
         }
 

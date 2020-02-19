@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using CapstoneTravelApp.TripsFolder;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.TripsFolder;
 
 namespace CapstoneTravelApp
 {
@@ -52,7 +48,7 @@ namespace CapstoneTravelApp
             var trips = conn.Query<Trips_Table>($"SELECT * FROM Trips_Table WHERE UserName = '{CurrentUser}'");
 
             TripsList = new ObservableCollection<Trips_Table>(trips);
-            
+
             TripsListView.ItemsSource = TripsList.OrderBy(d => d.TripStart);
 
             base.OnAppearing();

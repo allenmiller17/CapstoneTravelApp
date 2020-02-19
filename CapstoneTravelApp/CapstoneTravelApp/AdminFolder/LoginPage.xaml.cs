@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.AdminFolder;
+using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
 
 namespace CapstoneTravelApp
 {
@@ -18,7 +14,6 @@ namespace CapstoneTravelApp
     {
         UserHelper userData;
         private SQLiteConnection conn;
-        private ObservableCollection<User_Table> UserList;
 
         public LoginPage()
         {
@@ -46,7 +41,7 @@ namespace CapstoneTravelApp
                 {
                     if (validAdmin)
                     {
-
+                        await Navigation.PushAsync(new AdminSearchPage());
                     }
                     else
                     {

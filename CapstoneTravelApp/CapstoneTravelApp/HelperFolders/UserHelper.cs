@@ -1,11 +1,11 @@
-﻿using SQLite;
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
-using CapstoneTravelApp.DatabaseTables;
-using System;
 using System.Text.RegularExpressions;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace CapstoneTravelApp.HelperFolders
 {
@@ -35,7 +35,7 @@ namespace CapstoneTravelApp.HelperFolders
             return _SQLiteConnection.Table<Trips_Table>().FirstOrDefault(un => un.UserName == userName);
         }
 
-        public void DeleteUser (int id)
+        public void DeleteUser(int id)
         {
             _SQLiteConnection.Delete<User_Table>(id);
         }
@@ -54,6 +54,23 @@ namespace CapstoneTravelApp.HelperFolders
             else
             {
                 return "A user with this name already exists!";
+            }
+        }
+
+        public string AddAdmin(Admin_Table admin)
+        {
+            var data = _SQLiteConnection.Table<Admin_Table>();
+            var d1 = data.Where(f => f.AdminUserName == admin.AdminUserName)
+                .FirstOrDefault(f => f.AdminId == admin.AdminId);
+
+            if (d1 == null)
+            {
+                _SQLiteConnection.Insert(admin);
+                return "Admin Added";
+            }
+            else
+            {
+                return "An admin with this userName already exists!";
             }
         }
 
@@ -96,7 +113,7 @@ namespace CapstoneTravelApp.HelperFolders
                 return false;
         }
 
-       public static bool PhoneCheck(string strPhone)
+        public static bool PhoneCheck(string strPhone)
         {
             //Checks Phone number formatting
             string MatchPhoneNumberPattern = "^(?([0-9]{3}))?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$";
@@ -128,7 +145,7 @@ namespace CapstoneTravelApp.HelperFolders
             }
             catch (FeatureNotSupportedException ex)
             {
-               
+
             }
             catch (Exception ex)
             {

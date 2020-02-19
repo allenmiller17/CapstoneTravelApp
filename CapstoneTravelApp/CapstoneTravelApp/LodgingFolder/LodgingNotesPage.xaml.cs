@@ -1,37 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.LodgingFolder;
-using Xamarin.Essentials;
-using CapstoneTravelApp.FlightsFolder;
 
 
 namespace CapstoneTravelApp.LodgingFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LodgingNotesPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LodgingNotesPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Lodging_Table lodging;
-		public LodgingNotesPage (Lodging_Table _currentLodging)
-		{
-			InitializeComponent ();
+        public LodgingNotesPage(Lodging_Table _currentLodging)
+        {
+            InitializeComponent();
             lodging = _currentLodging;
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
             Title = $"{lodging.LodgeName}" + " Notes";
 
             courseNotesEditor.Text = $"{lodging.LodgeNotes}";
-		}
+        }
 
         private async void MenuButton_Clicked(object sender, EventArgs e)
         {

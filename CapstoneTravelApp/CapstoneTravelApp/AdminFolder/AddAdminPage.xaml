@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CapstoneTravelApp.RegisterationPage"
-             Title="Sign Up Page">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CapstoneTravelApp.AdminFolder.AddAdminPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
                 <Frame HasShadow="True" Margin="10,0">
                     <StackLayout>
-                        <Entry x:Name="firstNameEntry" ReturnType="Next" Placeholder="First Name"/>
-                        <Entry x:Name="lastNameEntry" ReturnType="Next" Placeholder="Last Name"/>
                         <Entry x:Name="emailEntry" Placeholder="Email" ReturnType="Next" Keyboard="Email"/>
                         <Entry x:Name="userNameEntry" ReturnType="Next" MaxLength="15" Placeholder="User Name"/>
                         <Entry x:Name="passwordEntry" ReturnType="Next" MaxLength="15" IsPassword="True" Placeholder="Password"/>
                         <Entry x:Name="confirmPasswordEntry" ReturnType="Next" MaxLength="15" IsPassword="True" Placeholder="Confirm Password"/>
                         <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15"/>
-                        <Button x:Name="signUpButton" Clicked="SignUpButton_Clicked" FontSize="Medium" Text="Sign Up" CornerRadius="10"
+                        <Button x:Name="RegisterButton" Clicked="RegisterButton_Clicked" FontSize="Medium" Text="Register" CornerRadius="10"
                             BackgroundColor="#FFF066" Margin="10,0"/>
                     </StackLayout>
                 </Frame>

@@ -3,48 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CapstoneTravelApp.EntertainSelectPage" BackgroundColor="White">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
-                <StackLayout x:Name="Entertainment">
-                    <StackLayout>
-                        <StackLayout>
-                            <Label Text="Select Entertainment" HorizontalOptions="CenterAndExpand" Font="Bold, 20" Margin="0,10,0,10"/>
-                        </StackLayout>
-                        <StackLayout x:Name="Activity">
-                            <ListView x:Name="EntertainmentListView" RowHeight="120">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell IsEnabled="True">
-                                            <StackLayout Padding="10" Orientation="Vertical">
-                                                <Frame HasShadow="True">
-                                                    <StackLayout>
-                                                        <StackLayout Orientation="Horizontal">
-                                                            <Label Text="{Binding EntertainName}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
-                                                        </StackLayout>
-                                                        <BoxView Color="#247BA0" HeightRequest="2" HorizontalOptions="Fill"/>
-                                                        <StackLayout Orientation="Horizontal">
-                                                            <Label Text="{Binding EntertaninStart, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="StartAndExpand"/>
-                                                            <Label Text="{Binding EntertainEnd, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="EndAndExpand"/>
-                                                        </StackLayout>
-                                                        <StackLayout Orientation="Horizontal">
-                                                            <Label Text="{Binding EntertaninStart, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="StartAndExpand"/>
-                                                            <Label Text="{Binding EntertainEnd, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="EndAndExpand"/>
-                                                        </StackLayout>
-                                                    </StackLayout>
-                                                </Frame>
-                                            </StackLayout>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
+        <StackLayout>
+            <Image Source="HeaderLong01" WidthRequest="{OnPlatform Android=250}" HorizontalOptions="Center"/>
+            <StackLayout x:Name="Entertainment">
                 <StackLayout>
-                    <Button x:Name="menuButton" Text="Options" Clicked="menuButton_Clicked" Margin="10,0" FontSize="Medium" BackgroundColor="#FFF066"/>
+                    <Label Text="Entertainment" HorizontalOptions="CenterAndExpand" Font="Bold, 20" Margin="0,10,0,10"/>
                 </StackLayout>
+                <StackLayout x:Name="Activity">
+                    <ListView x:Name="EntertainmentListView" RowHeight="120">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="True">
+                                    <StackLayout Padding="10" Orientation="Vertical">
+                                        <Frame HasShadow="True">
+                                            <StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding EntertainName}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                                </StackLayout>
+                                                <BoxView Color="#247BA0" HeightRequest="2" HorizontalOptions="Fill"/>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding EntertaninStart, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="StartAndExpand"/>
+                                                    <Label Text="{Binding EntertainEnd, StringFormat='{}{0:MM/dd/yy}'}" HorizontalOptions="EndAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding EntertaninStart, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="StartAndExpand"/>
+                                                    <Label Text="{Binding EntertainEnd, StringFormat='{}{0:hh:mm}'}" HorizontalOptions="EndAndExpand"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <Button x:Name="menuButton" Text="Options" Clicked="menuButton_Clicked" Margin="10,10" FontSize="Medium" BackgroundColor="#FFF066" CornerRadius="10"/>
             </StackLayout>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

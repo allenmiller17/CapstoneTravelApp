@@ -31,12 +31,12 @@
                                 <Label Text="Entertainment Reminders" HorizontalOptions="End" FontSize="Medium"/>
                                 <Switch IsToggled="False" HorizontalOptions="End" x:Name="notificationSwitch"/>
                             </StackLayout>
-                            <Button x:Name="activityNotesButton" Text="Entertainment Notes" Clicked="activityNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10" BackgroundColor="#70C1B3"/>
+                            <Button x:Name="activityNotesButton" Text="Entertainment Notes" Clicked="ActivityNotesButton_Clicked" Margin="10,0" FontSize="Medium" CornerRadius="10" BackgroundColor="#70C1B3"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
                 <StackLayout VerticalOptions="EndAndExpand">
-                    <Button x:Name="menuButton" Text="Entertainment Options" Clicked="menuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
+                    <Button x:Name="menuButton" Text="Entertainment Options" Clicked="MenuButton_Clicked" VerticalOptions="EndAndExpand" Margin="10,10,10,10" FontSize="Medium" CornerRadius="10" BackgroundColor="#FFF066"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

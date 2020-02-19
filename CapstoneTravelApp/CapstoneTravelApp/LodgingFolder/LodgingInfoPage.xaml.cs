@@ -1,36 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.LodgingFolder;
-using Xamarin.Essentials;
-using CapstoneTravelApp.FlightsFolder;
 
 namespace CapstoneTravelApp.LodgingFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LodgingInfoPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LodgingInfoPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Lodging_Table _currentLodging;
         private ObservableCollection<Lodging_Table> _LodgingList;
-		public LodgingInfoPage (Lodging_Table currentLodging)
-		{
-			InitializeComponent ();
+        public LodgingInfoPage(Lodging_Table currentLodging)
+        {
+            InitializeComponent();
             _currentLodging = currentLodging;
 
             Title = _currentLodging.LodgeName;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
-		}
+        }
 
         protected async override void OnAppearing()
         {

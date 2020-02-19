@@ -1,29 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.EntertainmentFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.EntertainmentFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EntertainmentNotesPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class EntertainmentNotesPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Entertainment_Table currentActivity;
 
-		public EntertainmentNotesPage (Entertainment_Table _currentActivity)
-		{
-			InitializeComponent ();
+        public EntertainmentNotesPage(Entertainment_Table _currentActivity)
+        {
+            InitializeComponent();
 
             currentActivity = _currentActivity;
 
@@ -32,7 +24,7 @@ namespace CapstoneTravelApp.EntertainmentFolder
             Title = _currentActivity.EntertainName + " Notes";
 
             NotesEditor.Text = currentActivity.EntertainNotes;
-		}
+        }
 
         private async void MenuButton_Clicked(object sender, EventArgs e)
         {

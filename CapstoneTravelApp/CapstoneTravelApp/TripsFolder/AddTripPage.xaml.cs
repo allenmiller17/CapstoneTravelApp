@@ -1,25 +1,19 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿
 using CapstoneTravelApp.DatabaseTables;
 using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.TripsFolder;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace CapstoneTravelApp.TripsFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddTripPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddTripPage : ContentPage
+    {
         private SQLiteConnection conn;
         private string _currentUser;
-		public AddTripPage (string CurrentUser)
-		{
-			InitializeComponent ();
+        public AddTripPage(string CurrentUser)
+        {
+            InitializeComponent();
 
             _currentUser = CurrentUser;
 
@@ -28,7 +22,7 @@ namespace CapstoneTravelApp.TripsFolder
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
             conn.CreateTable<Trips_Table>();
-		}
+        }
 
         private async void SaveButton_Clicked(object sender, System.EventArgs e)
         {

@@ -1,32 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.TripsFolder;
 
 namespace CapstoneTravelApp.TripsFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditTripPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class EditTripPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Trips_Table _currentTrip;
-		public EditTripPage (Trips_Table CurrentTrip)
-		{
-			InitializeComponent ();
+        public EditTripPage(Trips_Table CurrentTrip)
+        {
+            InitializeComponent();
             _currentTrip = CurrentTrip;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
             Title = _currentTrip.TripName;
-		}
+        }
 
         protected override void OnAppearing()
         {

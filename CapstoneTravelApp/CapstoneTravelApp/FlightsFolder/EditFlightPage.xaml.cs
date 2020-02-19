@@ -1,33 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using System.Globalization;
 
 namespace CapstoneTravelApp.FlightsFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditFlightPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class EditFlightPage : ContentPage
+    {
         private Flights_Table currentFlight;
         private SQLiteConnection conn;
 
-        public EditFlightPage (Flights_Table _currentFlight)
-		{
-			InitializeComponent ();
+        public EditFlightPage(Flights_Table _currentFlight)
+        {
+            InitializeComponent();
             currentFlight = _currentFlight;
             Title = currentFlight.AirlineName + "  " + currentFlight.FlightNumber;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
-		}
+        }
 
         protected override void OnAppearing()
         {
@@ -81,7 +73,7 @@ namespace CapstoneTravelApp.FlightsFolder
                 else
                 {
                     await DisplayAlert("Warning", "Arrival Date and Time cannot be before Departure Date and Time", "Ok");
-                } 
+                }
             }
             else
             {

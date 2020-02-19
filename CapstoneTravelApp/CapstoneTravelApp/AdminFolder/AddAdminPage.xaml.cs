@@ -1,32 +1,34 @@
 ﻿using CapstoneTravelApp.DatabaseTables;
 using CapstoneTravelApp.HelperFolders;
+using CapstoneTravelApp.TripsFolder;
+using SQLite;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CapstoneTravelApp
+
+namespace CapstoneTravelApp.AdminFolder
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterationPage : ContentPage
+    public partial class AddAdminPage : ContentPage
     {
-        User_Table users = new User_Table();
+        Admin_Table admin = new Admin_Table();
         UserHelper helper = new UserHelper();
 
-        public RegisterationPage()
+        public AddAdminPage()
         {
             InitializeComponent();
-
-            NavigationPage.SetHasBackButton(this, false);
             emailEntry.ReturnCommand = new Command(() => userNameEntry.Focus());
             userNameEntry.ReturnCommand = new Command(() => passwordEntry.Focus());
             passwordEntry.ReturnCommand = new Command(() => confirmPasswordEntry.Focus());
         }
 
-        private async void SignUpButton_Clicked(object sender, EventArgs e)
+        private async void RegisterButton_Clicked(object sender, EventArgs e)
         {
             if ((string.IsNullOrWhiteSpace(userNameEntry.Text)) || (string.IsNullOrWhiteSpace(passwordEntry.Text)) ||
-                (string.IsNullOrWhiteSpace(firstNameEntry.Text)) || (string.IsNullOrWhiteSpace(lastNameEntry.Text)) ||
-                (string.IsNullOrWhiteSpace(emailEntry.Text)))
+    (string.IsNullOrWhiteSpace(emailEntry.Text)))
             {
                 await DisplayAlert("Warning", "All fields are required", "Ok");
             }
@@ -38,21 +40,19 @@ namespace CapstoneTravelApp
             }
             else
             {
-                users.UserEmail = emailEntry.Text;
-                users.UserName = userNameEntry.Text;
-                users.FirstName = firstNameEntry.Text;
-                users.LastName = lastNameEntry.Text;
-                users.Password = passwordEntry.Text;
+                admin.AdminEmail = emailEntry.Text;
+                admin.AdminUserName = userNameEntry.Text;
+                admin.AdminPassword = passwordEntry.Text;
 
-                var returnValue = helper.AddUser(users);
-                if (returnValue == "User Added")
+                var returnValue = helper.AddAdmin(admin);
+                if (returnValue == "Admin Added")
                 {
-                    await DisplayAlert("Success!", "New user created", "Ok");
-                    await Navigation.PushAsync(new LoginPage());
+                    await DisplayAlert("Success!", "New admin created", "Ok");
+                    await Navigation.PopAsync();
                 }
                 else
                 {
-                    await DisplayAlert("Failure", "User not created", "OK");
+                    await DisplayAlert("Failure", "admin not created", "OK");
 
                     warningLabel.IsVisible = false;
 

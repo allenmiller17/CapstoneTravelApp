@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
+using System;
 
 namespace CapstoneTravelApp.DatabaseTables
 {
@@ -22,7 +20,7 @@ namespace CapstoneTravelApp.DatabaseTables
 
         public DateTime LodgeEnd { get; set; }
 
-        
+
         public string LodgePhone { get; set; }
 
         public string LodgeNotes { get; set; }

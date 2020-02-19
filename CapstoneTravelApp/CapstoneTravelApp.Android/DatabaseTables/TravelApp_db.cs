@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using CapstoneTravelApp.DatabaseTables;
-using Xamarin.Forms;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.Droid.DatabaseTables;
 using SQLite;
 using System.IO;
-using CapstoneTravelApp.Droid;
-using CapstoneTravelApp.Droid.DatabaseTables;
+using Xamarin.Forms;
 
 [assembly: Dependency(typeof(TravelApp_db))]
 namespace CapstoneTravelApp.Droid.DatabaseTables

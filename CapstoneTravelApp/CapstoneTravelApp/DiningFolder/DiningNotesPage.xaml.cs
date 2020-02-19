@@ -1,36 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using SQLite;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.DiningFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp.DiningFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class DiningNotesPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class DiningNotesPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Dining_Table currentRes;
 
-		public DiningNotesPage (Dining_Table _currentRes)
-		{
-			InitializeComponent ();
+        public DiningNotesPage(Dining_Table _currentRes)
+        {
+            InitializeComponent();
             currentRes = _currentRes;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
             Title = $"{currentRes.ResName}" + " Notes";
             NotesEditor.Text = currentRes.ResNotes;
-		}
+        }
 
         private async void MenuButton_Clicked(object sender, EventArgs e)
         {

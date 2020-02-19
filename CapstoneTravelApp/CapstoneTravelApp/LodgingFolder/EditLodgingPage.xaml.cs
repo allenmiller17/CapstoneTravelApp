@@ -1,34 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
+using SQLite;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using System.Globalization;
 
 namespace CapstoneTravelApp.LodgingFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditLodging : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class EditLodging : ContentPage
+    {
         private SQLiteConnection conn;
         private Lodging_Table _hotel;
-        UserHelper userData;
-		public EditLodging (Lodging_Table hotel)
-		{
-			InitializeComponent ();
+
+        public EditLodging(Lodging_Table hotel)
+        {
+            InitializeComponent();
             _hotel = hotel;
 
             Title = hotel.LodgeName;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
-		}
+        }
 
         protected override void OnAppearing()
         {

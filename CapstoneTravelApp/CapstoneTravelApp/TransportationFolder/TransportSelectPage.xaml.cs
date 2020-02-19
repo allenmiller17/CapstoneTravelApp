@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.TransportationFolder;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.TransportationFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TransportSelectPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TransportSelectPage : ContentPage
+    {
         private SQLiteConnection conn;
         private Trips_Table _currentTrip;
         public ObservableCollection<Transportation_Table> rentalList;
 
-		public TransportSelectPage (Trips_Table CurrentTrip)
-		{
-			InitializeComponent ();
+        public TransportSelectPage(Trips_Table CurrentTrip)
+        {
+            InitializeComponent();
 
             _currentTrip = CurrentTrip;
             Title = "Select Local Transportation";
@@ -61,7 +56,7 @@ namespace CapstoneTravelApp
                         Text = rental.RentalName + " " + rental.RentalPhone + "\n" +
                         rental.PickUpLocation + "\n" +
                         "Pickup Time: " + rental.PickUpDate + "\n" +
-                         rental.ReturnLocation +"\n" +
+                         rental.ReturnLocation + "\n" +
                         "Return Time: " + rental.ReturnDate +
                         "Record updated at: " + DateTime.Now.ToString("MM/dd/yy HH:mm tt") + "\n" + "\n" + "\n"
                     });

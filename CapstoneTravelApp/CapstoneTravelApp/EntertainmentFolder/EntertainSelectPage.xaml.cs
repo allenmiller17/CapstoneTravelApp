@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.EntertainmentFolder;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.EntertainmentFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp
 {
@@ -22,9 +17,9 @@ namespace CapstoneTravelApp
 		Trips_Table _currentTrip;
 		private ObservableCollection<Entertainment_Table> activityList;
 
-		public EntertainSelectPage (Trips_Table CurrentTrip)
+		public EntertainSelectPage(Trips_Table CurrentTrip)
 		{
-			InitializeComponent ();
+			InitializeComponent();
 			_currentTrip = CurrentTrip;
 
 			Title = "Select Entertainment";

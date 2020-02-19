@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
+﻿using CapstoneTravelApp.DatabaseTables;
 using SQLite;
-using CapstoneTravelApp.HelperFolders;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
+using Xamarin.Forms;
 
 namespace CapstoneTravelApp
 {
     public partial class MainPage : ContentPage
     {
         private SQLiteConnection conn;
-        private ObservableCollection<User_Table> UserList;
 
         public MainPage()
         {
@@ -28,14 +21,7 @@ namespace CapstoneTravelApp
 
             NavigationPage.SetHasNavigationBar(this.Main, true);
 
-            conn.DropTable<User_Table>();
-            conn.DropTable<Trips_Table>();
-            conn.DropTable<Flights_Table>();
-            conn.DropTable<Dining_Table>();
-            conn.DropTable<Entertainment_Table>();
-            conn.DropTable<Lodging_Table>();
-            conn.DropTable<Transportation_Table>();
-
+            conn.CreateTable<Admin_Table>();
             conn.CreateTable<User_Table>();
             conn.CreateTable<Trips_Table>();
             conn.CreateTable<Flights_Table>();
@@ -45,6 +31,17 @@ namespace CapstoneTravelApp
             conn.CreateTable<Transportation_Table>();
 
             var _UserList = conn.Query<User_Table>($"SELECT * FROM User_Table");
+            var adminList = conn.Query < Admin_Table>($"SELECT * FROM Admin_Table");
+
+            if (!adminList.Any())
+            {
+                var admin = new Admin_Table();
+                admin.AdminUserName = "admin";
+                admin.AdminPassword = "password";
+                admin.AdminEmail = "admin@joyfuljourneys.com";
+                conn.Insert(admin);
+                adminList.Add(admin);
+            }
 
             if (!_UserList.Any())
             {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 namespace CapstoneTravelApp.DatabaseTables
 {
@@ -11,7 +8,7 @@ namespace CapstoneTravelApp.DatabaseTables
         public int AdminId { get; set; }
 
         [NotNull]
-        public string AdminUserName {get; set;}
+        public string AdminUserName { get; set; }
 
         [NotNull]
         public string AdminPassword { get; set; }

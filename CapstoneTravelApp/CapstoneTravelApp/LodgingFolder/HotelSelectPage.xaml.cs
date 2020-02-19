@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.LodgingFolder;
+using SQLite;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
-using SQLite;
-using CapstoneTravelApp.HelperFolders;
-using System.Collections.ObjectModel;
-using CapstoneTravelApp.LodgingFolder;
-using Xamarin.Essentials;
 
 namespace CapstoneTravelApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HotelSelectPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HotelSelectPage : ContentPage
+    {
         private SQLiteConnection conn;
         Trips_Table _currentTrip;
         private ObservableCollection<Lodging_Table> lodgingList;
-		public HotelSelectPage (Trips_Table CurrentTrip)
-		{
-			InitializeComponent ();
+        public HotelSelectPage(Trips_Table CurrentTrip)
+        {
+            InitializeComponent();
             _currentTrip = CurrentTrip;
 
             Title = "Select Lodging";
@@ -66,7 +61,7 @@ namespace CapstoneTravelApp
             }
         }
 
-        private async void Hotel_Tapped (object sender, ItemTappedEventArgs e)
+        private async void Hotel_Tapped(object sender, ItemTappedEventArgs e)
         {
             Lodging_Table currentLodging = (Lodging_Table)e.Item;
             await Navigation.PushAsync(new LodgingInfoPage(currentLodging));

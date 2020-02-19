@@ -1,36 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using CapstoneTravelApp.DatabaseTables;
+﻿using CapstoneTravelApp.DatabaseTables;
 using SQLite;
-using CapstoneTravelApp.HelperFolders;
+using System;
 using System.Collections.ObjectModel;
 using Xamarin.Essentials;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace CapstoneTravelApp.FlightsFolder
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class FlightInfoPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class FlightInfoPage : ContentPage
+    {
         private Flights_Table _currentFlight;
         private SQLiteConnection conn;
         private ObservableCollection<Flights_Table> _flightsList;
 
-		public FlightInfoPage (Flights_Table currentFlight)
-		{
-			InitializeComponent ();
+        public FlightInfoPage(Flights_Table currentFlight)
+        {
+            InitializeComponent();
 
             _currentFlight = currentFlight;
 
             Title = _currentFlight.AirlineName;
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
-		}
+        }
 
         protected override void OnAppearing()
         {

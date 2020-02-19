@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
+using System;
 namespace CapstoneTravelApp.DatabaseTables
 {
     public class Dining_Table
@@ -20,7 +18,7 @@ namespace CapstoneTravelApp.DatabaseTables
 
         public string ResPhone { get; set; }
 
-        
+
         public string ResNotes { get; set; }
 
         [NotNull]
