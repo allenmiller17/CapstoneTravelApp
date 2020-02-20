@@ -39,39 +39,45 @@ namespace CapstoneTravelApp.DiningFolder
             notificationSwitch.IsToggled = _currentRes.ResNotifications == 1 ? true : false;
 
 
-            //Open phone number in phone app
-            DiningPhoneLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            if (UserHelper.IsNull(DiningPhoneLabel.Text))
             {
-                Command = new Command(() =>
+                //Open phone number in phone app
+                DiningPhoneLabel.GestureRecognizers.Add(new TapGestureRecognizer()
                 {
-                    UserHelper.PlacePhoneCall(DiningPhoneLabel.Text);
-                })
-            });
+                    Command = new Command(() =>
+                    {
+                        UserHelper.PlacePhoneCall(DiningPhoneLabel.Text);
+                    })
+                }); 
+            }
 
-            ////Open Address in maps
-            //var address = DiningLocLabel.Text;
-            //var location = await Geocoding.GetLocationsAsync(address);
-            //var _location = location?.FirstOrDefault();
+            if (UserHelper.IsNull(DiningLocLabel.Text))
+            {
+                //Open Address in maps
+                var address = DiningLocLabel.Text;
+                var location = await Geocoding.GetLocationsAsync(address);
+                var _location = location?.FirstOrDefault();
 
-            //DiningLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
-            //{
-            //    Command = new Command(() =>
-            //    {
-            //        try
-            //        {
-            //            if (location != null)
-            //            {
-            //                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
-            //                Map.OpenAsync(_location.Latitude, _location.Longitude, options);
-            //            }
-            //        }
-            //        catch (Exception)
-            //        {
+                DiningLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+                {
+                    Command = new Command(() =>
+                    {
+                        try
+                        {
+                            if (location != null)
+                            {
+                                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                                Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+                            }
+                        }
+                        catch (Exception)
+                        {
 
-            //            DisplayAlert("Warning", "This function is not currently available", "Ok");
-            //        }
-            //    })
-            //});
+                            DisplayAlert("Warning", "This function is not currently available", "Ok");
+                        }
+                    })
+                }); 
+            }
 
             base.OnAppearing();
         }

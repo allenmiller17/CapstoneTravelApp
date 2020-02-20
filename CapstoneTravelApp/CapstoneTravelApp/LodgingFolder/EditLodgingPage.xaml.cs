@@ -56,23 +56,27 @@ namespace CapstoneTravelApp.LodgingFolder
             _hotel.LodgeEnd = cOutFull;
             _hotel.LodgeNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
 
-            if (_hotel.LodgeStart <= _hotel.LodgeEnd)
+            if (UserHelper.IsNull(lodgeNameEntry.Text))
             {
-                if (UserHelper.PhoneCheck(lodgePhoneEntry.Text))
+                if (_hotel.LodgeStart <= _hotel.LodgeEnd)
                 {
-                    conn.Update(_hotel);
-                    await DisplayAlert("Notice", "Lodging record updated", "Ok");
-                    await Navigation.PopModalAsync();
+                    if (UserHelper.PhoneCheck(lodgePhoneEntry.Text))
+                    {
+                        conn.Update(_hotel);
+                        await DisplayAlert("Notice", "Lodging record updated", "Ok");
+                        await Navigation.PopModalAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+                    await DisplayAlert("Warning", "Check-in must be earlier than check-out", "Ok");
                 }
             }
-            else
-            {
-                await DisplayAlert("Warning", "Check-in must be earlier than check-out", "Ok");
-            }
+            else await DisplayAlert("Warning", "Lodging Name is required", "Ok");
         }
     }
 }

@@ -43,32 +43,36 @@ namespace CapstoneTravelApp.LodgingFolder
             newLodging.LodgeNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
             newLodging.TripId = currentTrip.TripId;
 
-            if (newLodging.LodgeStart <= newLodging.LodgeEnd)
+            if ((UserHelper.IsNull(lodgeNameEntry.Text)))
             {
-                if (lodgePhoneEntry.Text != null)
+                if (newLodging.LodgeStart <= newLodging.LodgeEnd)
                 {
-                    if (UserHelper.PhoneCheck(lodgePhoneEntry.Text))
+                    if (lodgePhoneEntry.Text != null)
+                    {
+                        if (UserHelper.PhoneCheck(lodgePhoneEntry.Text))
+                        {
+                            conn.Insert(newLodging);
+                            await DisplayAlert("Notice", "Lodging record created", "Ok");
+                            await Navigation.PopModalAsync();
+                        }
+                        else
+                        {
+                            await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+                        }
+                    }
+                    else
                     {
                         conn.Insert(newLodging);
                         await DisplayAlert("Notice", "Lodging record created", "Ok");
                         await Navigation.PopModalAsync();
                     }
-                    else
-                    {
-                        await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
-                    }
                 }
                 else
                 {
-                    conn.Insert(newLodging);
-                    await DisplayAlert("Notice", "Lodging record created", "Ok");
-                    await Navigation.PopModalAsync();
-                }
+                    await DisplayAlert("Warning", "Check-in must be earlier than check-out", "Ok");
+                } 
             }
-            else
-            {
-                await DisplayAlert("Warning", "Check-in must be earlier than check-out", "Ok");
-            }
+            else await DisplayAlert("Warning", "Lodging Name is required", "Ok");
         }
     }
 }

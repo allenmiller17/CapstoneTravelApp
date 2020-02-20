@@ -3,6 +3,7 @@ using SQLite;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CapstoneTravelApp.HelperFolders;
 
 namespace CapstoneTravelApp.TripsFolder
 {
@@ -39,16 +40,20 @@ namespace CapstoneTravelApp.TripsFolder
             _currentTrip.TripEnd = endDatePicker.Date;
             _currentTrip.TripNotifications = notificationsSwitch.IsToggled == true ? 1 : 0;
 
-            if (_currentTrip.TripStart <= _currentTrip.TripEnd)
+            if (UserHelper.IsNull(tripNameEntry.Text))
             {
-                conn.Update(_currentTrip);
-                await DisplayAlert("Notice", $"{_currentTrip.TripName}" + " Updated.", "Ok");
-                await Navigation.PopModalAsync();
+                if (_currentTrip.TripStart <= _currentTrip.TripEnd)
+                {
+                    conn.Update(_currentTrip);
+                    await DisplayAlert("Notice", $"{_currentTrip.TripName}" + " Updated.", "Ok");
+                    await Navigation.PopModalAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Warning", "Start date must come before end date", "Ok");
+                }
             }
-            else
-            {
-                await DisplayAlert("Warning", "Start date must come before end date", "Ok");
-            }
+            else await DisplayAlert("Warning", "Trip Name is required", "Ok");
         }
     }
 }

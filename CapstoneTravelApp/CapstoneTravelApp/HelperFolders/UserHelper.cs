@@ -116,7 +116,7 @@ namespace CapstoneTravelApp.HelperFolders
         public static bool PhoneCheck(string strPhone)
         {
             //Checks Phone number formatting
-            string MatchPhoneNumberPattern = "^(?([0-9]{3}))?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$";
+            
             try
             {
                 if (string.IsNullOrEmpty(strPhone))
@@ -151,6 +151,15 @@ namespace CapstoneTravelApp.HelperFolders
             {
                 // Other error has occurred.
             }
+        }
+
+        public static bool IsNull(string emptyField)
+        {
+            if (String.IsNullOrEmpty(emptyField))
+            {
+                return false;
+            }
+            else return true;
         }
     }
 }

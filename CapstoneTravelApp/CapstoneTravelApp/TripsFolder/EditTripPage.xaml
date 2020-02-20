@@ -13,9 +13,9 @@
                                 <Entry x:Name="tripNameEntry" Placeholder="Trip Name" HorizontalOptions="FillAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label x:Name="startDateLabel" Text="Start: " HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium"/>
+                                <Label x:Name="startDateLabel" Text="Start " HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Medium"/>
                                 <DatePicker x:Name="startDatePicker" HorizontalOptions="Start"/>
-                                <Label x:Name="endDateLabel" Text="End: " HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Medium"/>
+                                <Label x:Name="endDateLabel" Text="End " HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Medium"/>
                                 <DatePicker x:Name="endDatePicker" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">

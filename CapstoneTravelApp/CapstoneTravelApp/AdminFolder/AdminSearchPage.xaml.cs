@@ -53,7 +53,7 @@ namespace CapstoneTravelApp.AdminFolder
             }
             else
             {
-                UserListView.ItemsSource = UserList.Where(l => l.LastName.StartsWith(e.NewTextValue)).OrderBy(n => n.LastName);
+                UserListView.ItemsSource = UserList.Where(l => l.LastName.ToUpper().StartsWith(e.NewTextValue.ToUpper())).OrderBy(n => n.LastName);
             }
         }
 

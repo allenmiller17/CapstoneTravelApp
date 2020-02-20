@@ -26,10 +26,6 @@ namespace CapstoneTravelApp.TransportationFolder
 
             conn = DependencyService.Get<ITravelApp_db>().GetConnection();
 
-            //var tapGestureRecognizer = new TapGestureRecognizer();
-            //tapGestureRecognizer.Tapped += (s, e) => { Command cmd = new Command(() => { UserHelper.PlacePhoneCall(transportationPhoneLabel.Text); }); };
-
-
         }
 
         protected async override void OnAppearing()
@@ -48,64 +44,75 @@ namespace CapstoneTravelApp.TransportationFolder
             notificationSwitch.IsToggled = _currentRental.RentalNotifications == 1 ? true : false;
 
 
-            //Open phone number in phone app
-            transportationPhoneLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            if (UserHelper.IsNull(transportationPhoneLabel.Text))
             {
-                Command = new Command(() =>
+                //Open phone number in phone app
+                transportationPhoneLabel.GestureRecognizers.Add(new TapGestureRecognizer()
                 {
-                    UserHelper.PlacePhoneCall(transportationPhoneLabel.Text);
-                })
-            });
-
-            //Open Address or landmark in maps
-            var address = pickupLocLabel.Text;
-            var location = await Geocoding.GetLocationsAsync(address);
-            var _location = location?.FirstOrDefault();
-
-            pickupLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = new Command(() =>
-                {
-                    try
+                    Command = new Command(() =>
                     {
-                        if (location != null)
+                        UserHelper.PlacePhoneCall(transportationPhoneLabel.Text);
+                    })
+                });
+            }
+
+            if (UserHelper.IsNull(pickupLocLabel.Text))
+            {
+                //Open Address or landmark in maps
+                var address = pickupLocLabel.Text;
+                var location = await Geocoding.GetLocationsAsync(address);
+                var _location = location?.FirstOrDefault();
+
+                pickupLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+                {
+                    Command = new Command(() =>
+                    {
+                        try
                         {
-                            var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
-                            Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+                            if (location != null)
+                            {
+                                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                                Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
-
-                        DisplayAlert("Warning", "This function is not currently available", "Ok");
-                    }
-                })
-            });
-
-            //Dropoff Navigation
-            var address1 = dropoffLocLabel.Text;
-            var location1 = await Geocoding.GetLocationsAsync(address);
-            var _location1 = location?.FirstOrDefault();
-
-            dropoffLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = new Command(() =>
-                {
-                    try
-                    {
-                        if (location1 != null)
+                        catch (Exception)
                         {
-                            var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
-                            Map.OpenAsync(_location1.Latitude, _location1.Longitude, options);
-                        }
-                    }
-                    catch (Exception)
-                    {
 
-                        DisplayAlert("Warning", "This function is not currently available", "Ok");
-                    }
-                })
-            });
+                            DisplayAlert("Warning", "This function is not currently available", "Ok");
+                        }
+                    })
+                });
+            }
+
+            if (UserHelper.IsNull(dropoffLocLabel.Text))
+            {
+                //Dropoff Navigation
+                var address1 = dropoffLocLabel.Text;
+                var location1 = await Geocoding.GetLocationsAsync(address1);
+                var _location1 = location1?.FirstOrDefault();
+
+                dropoffLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+                {
+                    Command = new Command(() =>
+                    {
+                        try
+                        {
+                            if (location1 != null)
+                            {
+                                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                                Map.OpenAsync(_location1.Latitude, _location1.Longitude, options);
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            DisplayAlert("Warning", "This function is not currently available", "Ok");
+                        }
+                    })
+                });
+
+
+            }
 
             base.OnAppearing();
         }

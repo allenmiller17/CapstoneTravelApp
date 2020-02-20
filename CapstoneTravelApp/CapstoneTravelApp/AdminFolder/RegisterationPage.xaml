@@ -17,7 +17,7 @@
                         <Entry x:Name="confirmPasswordEntry" ReturnType="Next" MaxLength="15" IsPassword="True" Placeholder="Confirm Password"/>
                         <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15"/>
                         <Button x:Name="signUpButton" Clicked="SignUpButton_Clicked" FontSize="Medium" Text="Sign Up" CornerRadius="10"
-                            BackgroundColor="#FFF066" Margin="10,0"/>
+                            BackgroundColor="#FFF066" Margin="10,10"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

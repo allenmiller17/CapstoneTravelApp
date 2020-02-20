@@ -10,7 +10,7 @@
                     <Frame HasShadow="True" Margin="10,0">
                         <StackLayout>
                             <StackLayout>
-                                <Entry x:Name="DiningNameEntry" Placeholder="Lodging Name" HorizontalOptions="Fill"/>
+                                <Entry x:Name="DiningNameEntry" Placeholder="Dining Name" HorizontalOptions="Fill"/>
                                 <Entry x:Name="DiningLocEntry" Placeholder="Address" HorizontalOptions="Fill"/>
                                 <Entry x:Name="DiningPhoneEntry" Placeholder="Phone (xxx)xxx-xxxx" HorizontalOptions="Fill"/>
                                 <StackLayout Orientation="Horizontal">

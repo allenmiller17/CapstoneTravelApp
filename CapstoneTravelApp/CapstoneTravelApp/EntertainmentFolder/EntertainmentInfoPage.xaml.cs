@@ -39,39 +39,45 @@ namespace CapstoneTravelApp.EntertainmentFolder
             endDateLabel.Text = _currentActivity.EntertainEnd.ToString("MM/dd hh:mm tt");
             notificationSwitch.IsToggled = _currentActivity.EntertainNotifications == 1 ? true : false;
 
-            //Open phone number in phone app
-            activityPhoneLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            if (UserHelper.IsNull(activityPhoneLabel.Text))
             {
-                Command = new Command(() =>
+                //Open phone number in phone app
+                activityPhoneLabel.GestureRecognizers.Add(new TapGestureRecognizer()
                 {
-                    UserHelper.PlacePhoneCall(activityPhoneLabel.Text);
-                })
-            });
-
-            //Open Address in maps
-            var address = activityLocLabel.Text;
-            var location = await Geocoding.GetLocationsAsync(address);
-            var _location = location?.FirstOrDefault();
-
-            activityLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = new Command(() =>
-                {
-                    try
+                    Command = new Command(() =>
                     {
-                        if (location != null)
+                        UserHelper.PlacePhoneCall(activityPhoneLabel.Text);
+                    })
+                }); 
+            }
+
+            if (UserHelper.IsNull(activityLocLabel.Text))
+            {
+                //Open Address in maps
+                var address = activityLocLabel.Text;
+                var location = await Geocoding.GetLocationsAsync(address);
+                var _location = location?.FirstOrDefault();
+
+                activityLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+                {
+                    Command = new Command(() =>
+                    {
+                        try
                         {
-                            var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
-                            Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+                            if (location != null)
+                            {
+                                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                                Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
+                        catch (Exception)
+                        {
 
-                        DisplayAlert("Warning", "This function is not currently available", "Ok");
-                    }
-                })
-            });
+                            DisplayAlert("Warning", "This function is not currently available", "Ok");
+                        }
+                    })
+                }); 
+            }
 
             base.OnAppearing();
         }

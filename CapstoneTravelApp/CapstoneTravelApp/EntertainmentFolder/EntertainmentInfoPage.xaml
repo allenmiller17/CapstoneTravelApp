@@ -13,11 +13,11 @@
                             <BoxView Color="#247BA0" HeightRequest="2" HorizontalOptions="Fill"/>
                             <StackLayout>
                                 <Label Text="Address: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                                <Label x:Name="activityLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="activityLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium" TextColor="#247BA0" TextDecorations="Underline"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Phone: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                                <Label x:Name="activityPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
+                                <Label x:Name="activityPhoneLabel" HorizontalOptions="End" FontSize="Medium" TextColor="#247BA0" TextDecorations="Underline"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Start: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>

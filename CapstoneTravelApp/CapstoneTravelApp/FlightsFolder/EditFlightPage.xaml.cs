@@ -3,6 +3,7 @@ using SQLite;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CapstoneTravelApp.HelperFolders;
 
 namespace CapstoneTravelApp.FlightsFolder
 {
@@ -61,24 +62,28 @@ namespace CapstoneTravelApp.FlightsFolder
             currentFlight.ArriveTime = aDate3;
             currentFlight.FlightNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
 
-            if (currentFlight.DepartLocation.Length <= 3 || currentFlight.ArriveLocation.Length <= 3)
+            if (UserHelper.IsNull(airlineNameEntry.Text) || UserHelper.IsNull(flightNumberEntry.Text))
             {
-                if (currentFlight.DepartTime <= currentFlight.ArriveTime)
+                if (currentFlight.DepartLocation.Length <= 3 || currentFlight.ArriveLocation.Length <= 3)
                 {
-                    conn.Update(currentFlight);
-                    await DisplayAlert("Notice", $"{currentFlight.AirlineName}" + " " + $"{currentFlight.FlightNumber}" + " Updated", "Ok");
+                    if (currentFlight.DepartTime <= currentFlight.ArriveTime)
+                    {
+                        conn.Update(currentFlight);
+                        await DisplayAlert("Notice", $"{currentFlight.AirlineName}" + " " + $"{currentFlight.FlightNumber}" + " Updated", "Ok");
 
-                    await Navigation.PopModalAsync();
+                        await Navigation.PopModalAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Warning", "Arrival Date and Time cannot be before Departure Date and Time", "Ok");
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Warning", "Arrival Date and Time cannot be before Departure Date and Time", "Ok");
+                    await DisplayAlert("Warning", "Airport code may only contain 3 letters", "Ok");
                 }
             }
-            else
-            {
-                await DisplayAlert("Warning", "Airport code may only contain 3 letters", "Ok");
-            }
+            else await DisplayAlert("Warning", "Airline Name and Flight Number are required", "Ok");
         }
 
         private void NotificationsSwitch_Toggled(object sender, ToggledEventArgs e)

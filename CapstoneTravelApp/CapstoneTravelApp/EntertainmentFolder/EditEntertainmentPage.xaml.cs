@@ -56,23 +56,27 @@ namespace CapstoneTravelApp.EntertainmentFolder
 			currentActivity.EntertainEnd = cOutFull;
 			currentActivity.EntertainNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
 
-			if (currentActivity.EntertaninStart <= currentActivity.EntertainEnd)
+			if (UserHelper.IsNull(entertainNameEntry.Text))
 			{
-				if (UserHelper.PhoneCheck(entertainPhoneEntry.Text))
+				if (currentActivity.EntertaninStart <= currentActivity.EntertainEnd)
 				{
-					conn.Update(currentActivity);
-					await DisplayAlert("Notice", "Entertainment record updated", "Ok");
-					await Navigation.PopModalAsync();
+					if (UserHelper.PhoneCheck(entertainPhoneEntry.Text))
+					{
+						conn.Update(currentActivity);
+						await DisplayAlert("Notice", "Entertainment record updated", "Ok");
+						await Navigation.PopModalAsync();
+					}
+					else
+					{
+						await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+					}
 				}
 				else
 				{
-					await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+					await DisplayAlert("Warning", "Check-in must be earlier than check-out", "Ok");
 				}
 			}
-			else
-			{
-				await DisplayAlert("Warning", "Check-in must be earlier than check-out", "Ok");
-			}
+			else await DisplayAlert("Warning", "Entertainment Name is required", "Ok");
 		}
 	}
 }

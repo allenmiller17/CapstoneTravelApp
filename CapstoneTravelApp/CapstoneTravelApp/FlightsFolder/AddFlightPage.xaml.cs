@@ -3,6 +3,7 @@ using SQLite;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CapstoneTravelApp.HelperFolders;
 
 namespace CapstoneTravelApp
 {
@@ -47,24 +48,28 @@ namespace CapstoneTravelApp
             newFlightInfo.FlightNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
             newFlightInfo.TripId = currentTrip.TripId;
 
-            if (newFlightInfo.DepartLocation.Length <= 3 || newFlightInfo.ArriveLocation.Length <= 3)
+            if ((UserHelper.IsNull(airlineNameEntry.Text) || UserHelper.IsNull(flightNumberEntry.Text)))
             {
-                if (newFlightInfo.DepartTime <= newFlightInfo.ArriveTime)
+                if (newFlightInfo.DepartLocation.Length <= 3 || newFlightInfo.ArriveLocation.Length <= 3)
                 {
-                    conn.Insert(newFlightInfo);
-                    await DisplayAlert("Notice", "Flight added!", "Ok");
+                    if (newFlightInfo.DepartTime <= newFlightInfo.ArriveTime)
+                    {
+                        conn.Insert(newFlightInfo);
+                        await DisplayAlert("Notice", "Flight added!", "Ok");
 
-                    await Navigation.PopModalAsync();
+                        await Navigation.PopModalAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Warning", "Arrival Date and Time cannot be before Departure Date and Time", "Ok");
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Warning", "Arrival Date and Time cannot be before Departure Date and Time", "Ok");
+                    await DisplayAlert("Warning", "Airport code may only contain 3 letters", "Ok");
                 }
             }
-            else
-            {
-                await DisplayAlert("Warning", "Airport code may only contain 3 letters", "Ok");
-            }
+            else await DisplayAlert("Warning", "Airline Name and Flight Number are required", "Ok");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using CapstoneTravelApp.DatabaseTables;
+using CapstoneTravelApp.HelperFolders;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -34,12 +35,17 @@ namespace CapstoneTravelApp.TripsFolder
             newTrip.TripNotifications = notificationsSwitch.IsToggled == true ? 1 : 0;
             newTrip.UserName = _currentUser;
 
-            if (newTrip.TripStart <= newTrip.TripEnd)
+            if ((UserHelper.IsNull(tripNameEntry.Text)))
             {
-                conn.Insert(newTrip);
-                await DisplayAlert("Notice", "New Trip Added", "Ok");
-                await Navigation.PopAsync();
+                if (newTrip.TripStart <= newTrip.TripEnd)
+                {
+                    conn.Insert(newTrip);
+                    await DisplayAlert("Notice", "New Trip Added", "Ok");
+                    await Navigation.PopAsync();
+                }
+                else await DisplayAlert("Warning", "Start Date must be earlier than End Date", "Ok"); 
             }
+            else await DisplayAlert("Warning", "Trip Name is required", "Ok");
         }
     }
 }

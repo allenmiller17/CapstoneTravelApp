@@ -38,15 +38,22 @@ namespace CapstoneTravelApp.DiningFolder
             currentRes.ResNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
             currentRes.TripId = currentTrip.TripId;
 
-            if (UserHelper.PhoneCheck(DiningPhoneEntry.Text))
+            if (UserHelper.IsNull(DiningNameEntry.Text))
             {
-                conn.Insert(currentRes);
-                await DisplayAlert("Notice", "Dining Reservation created", "Ok");
-                await Navigation.PopModalAsync();
+                if (UserHelper.PhoneCheck(DiningPhoneEntry.Text))
+                {
+                    conn.Insert(currentRes);
+                    await DisplayAlert("Notice", "Dining Reservation created", "Ok");
+                    await Navigation.PopModalAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+                } 
             }
             else
             {
-                await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+                await DisplayAlert("Warning", "Dining Name is required", "Ok");
             }
         }
     }

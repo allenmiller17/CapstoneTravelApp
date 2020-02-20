@@ -16,11 +16,11 @@
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Phone: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                                <Label x:Name="transportationPhoneLabel" HorizontalOptions="End" FontSize="Medium"/>
+                                <Label x:Name="transportationPhoneLabel" HorizontalOptions="End" FontSize="Medium" TextColor="#247BA0" TextDecorations="Underline"/>
                             </StackLayout>
                             <StackLayout>
                                 <Label Text="Pick-up Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                                <Label x:Name="pickupLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="pickupLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium" TextColor="#247BA0" TextDecorations="Underline"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Pick-up Date: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
@@ -28,7 +28,7 @@
                             </StackLayout>
                             <StackLayout>
                                 <Label Text="Drop-off Location: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
-                                <Label x:Name="dropoffLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                <Label x:Name="dropoffLocLabel" HorizontalOptions="StartAndExpand" FontSize="Medium" TextColor="#247BA0" TextDecorations="Underline"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Return Date: " VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>

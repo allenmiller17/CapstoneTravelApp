@@ -34,7 +34,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <Button x:Name="AddAdminButton" Text="Add Administrator" Clicked="AddAdminButton_Clicked" Margin="10,0" FontSize="Medium" HorizontalOptions="FillAndExpand" CornerRadius="10"
+            <Button x:Name="AddAdminButton" Text="Add Administrator" Clicked="AddAdminButton_Clicked" Margin="10,10" FontSize="Medium" HorizontalOptions="FillAndExpand" CornerRadius="10"
                             BackgroundColor="#FFF066"/>
         </StackLayout>
     </ContentPage.Content>

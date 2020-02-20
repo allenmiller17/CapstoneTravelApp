@@ -43,23 +43,27 @@ namespace CapstoneTravelApp.TransportationFolder
             newRental.RentalNotifications = notificationSwitch.IsToggled == true ? 1 : 0;
             newRental.TripId = currentTrip.TripId;
 
-            if (newRental.PickUpDate <= newRental.ReturnDate)
+            if ((UserHelper.IsNull(rentalNameEntry.Text) || UserHelper.IsNull(rentalConfEntry.Text)))
             {
-                if (UserHelper.PhoneCheck(rentalPhoneEntry.Text))
+                if (newRental.PickUpDate <= newRental.ReturnDate)
                 {
-                    conn.Insert(newRental);
-                    await DisplayAlert("Notice", "Transportation record added", "Ok");
-                    await Navigation.PopModalAsync();
+                    if (UserHelper.PhoneCheck(rentalPhoneEntry.Text))
+                    {
+                        conn.Insert(newRental);
+                        await DisplayAlert("Notice", "Transportation record added", "Ok");
+                        await Navigation.PopModalAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Warning", "Phone Number may only be 10 digits and only contain numbers", "Ok");
-                }
+                    await DisplayAlert("Warning", "Pickup must be earlier than Drop off", "Ok");
+                } 
             }
-            else
-            {
-                await DisplayAlert("Warning", "Pickup must be earlier than Drop off", "Ok");
-            }
+            else await DisplayAlert("Warning", "Rental Name and Confirmation Number are required", "Ok");
         }
     }
 }
