@@ -112,10 +112,7 @@ namespace CapstoneTravelApp
                 newRes2.ResName = "Rainforest Cafe";
                 newRes2.ResAddress = "123 Downtown Disney District, Anaheim, CA 92802";
                 newRes2.ResPhone = "(714)866-5555";
-<<<<<<< HEAD
                 newRes2.ResDate = new DateTime(2020,11,12);
-=======
->>>>>>> parent of 46e760e... Removed the map to google maps as it kept causing the application to crash. Can implement late. Added reminders for all sections once a user logs into the system.
                 newRes2.ResNotes = "Birthday Dinner";
                 newRes2.ResNotifications = 1;
                 newRes2.TripId = newTrip2.TripId;
