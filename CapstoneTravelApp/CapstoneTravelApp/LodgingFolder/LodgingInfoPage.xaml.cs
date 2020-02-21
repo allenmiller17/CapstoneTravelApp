@@ -52,34 +52,33 @@ namespace CapstoneTravelApp.LodgingFolder
                 }); 
             }
 
-            //Not Implemented
-            //if (UserHelper.IsNull(lodgingLocLabel.Text))
-            //{
-            //    //Open Address in maps
-            //    var address = lodgingLocLabel.Text;
-            //    var location = await Geocoding.GetLocationsAsync(address);
-            //    var _location = location?.FirstOrDefault();
+            if (UserHelper.IsNull(lodgingLocLabel.Text))
+            {
+                //Open Address in maps
+                var address = lodgingLocLabel.Text;
+                var location = await Geocoding.GetLocationsAsync(address);
+                var _location = location?.FirstOrDefault();
 
-            //    lodgingLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
-            //    {
-            //        Command = new Command(() =>
-            //        {
-            //            try
-            //            {
-            //                if (location != null)
-            //                {
-            //                    var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
-            //                    Map.OpenAsync(_location.Latitude, _location.Longitude, options);
-            //                }
-            //            }
-            //            catch (Exception)
-            //            {
+                lodgingLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+                {
+                    Command = new Command(() =>
+                    {
+                        try
+                        {
+                            if (location != null)
+                            {
+                                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                                Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+                            }
+                        }
+                        catch (Exception)
+                        {
 
-            //                DisplayAlert("Warning", "This function is not currently available", "Ok");
-            //            }
-            //        })
-            //    });
-            //}
+                            DisplayAlert("Warning", "This function is not currently available", "Ok");
+                        }
+                    })
+                }); 
+            }
 
             base.OnAppearing();
         }
