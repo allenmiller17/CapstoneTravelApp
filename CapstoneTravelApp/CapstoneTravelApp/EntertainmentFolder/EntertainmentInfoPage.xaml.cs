@@ -51,33 +51,35 @@ namespace CapstoneTravelApp.EntertainmentFolder
                 }); 
             }
 
-            if (UserHelper.IsNull(activityLocLabel.Text))
-            {
-                //Open Address in maps
-                var address = activityLocLabel.Text;
-                var location = await Geocoding.GetLocationsAsync(address);
-                var _location = location?.FirstOrDefault();
+            //Not Implimented
 
-                activityLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
-                {
-                    Command = new Command(() =>
-                    {
-                        try
-                        {
-                            if (location != null)
-                            {
-                                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
-                                Map.OpenAsync(_location.Latitude, _location.Longitude, options);
-                            }
-                        }
-                        catch (Exception)
-                        {
+            //if (UserHelper.IsNull(activityLocLabel.Text))
+            //{
+            //    //Open Address in maps
+            //    var address = activityLocLabel.Text;
+            //    var location = await Geocoding.GetLocationsAsync(address);
+            //    var _location = location?.FirstOrDefault();
 
-                            DisplayAlert("Warning", "This function is not currently available", "Ok");
-                        }
-                    })
-                }); 
-            }
+            //    activityLocLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            //    {
+            //        Command = new Command(() =>
+            //        {
+            //            try
+            //            {
+            //                if (location != null)
+            //                {
+            //                    var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+            //                    Map.OpenAsync(_location.Latitude, _location.Longitude, options);
+            //                }
+            //            }
+            //            catch (Exception)
+            //            {
+
+            //                DisplayAlert("Warning", "This function is not currently available", "Ok");
+            //            }
+            //        })
+            //    }); 
+            //}
 
             base.OnAppearing();
         }

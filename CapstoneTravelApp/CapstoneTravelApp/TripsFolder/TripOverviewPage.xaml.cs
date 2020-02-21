@@ -2,6 +2,7 @@
 using CapstoneTravelApp.TripsFolder;
 using SQLite;
 using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

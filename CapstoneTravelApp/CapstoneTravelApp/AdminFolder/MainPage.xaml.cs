@@ -21,6 +21,15 @@ namespace CapstoneTravelApp
 
             NavigationPage.SetHasNavigationBar(this.Main, true);
 
+            //conn.DropTable<Admin_Table>();
+            //conn.DropTable<User_Table>();
+            //conn.DropTable<Trips_Table>();
+            //conn.DropTable<Flights_Table>();
+            //conn.DropTable<Dining_Table>();
+            //conn.DropTable<Entertainment_Table>();
+            //conn.DropTable<Lodging_Table>();
+            //conn.DropTable<Transportation_Table>();
+
             conn.CreateTable<Admin_Table>();
             conn.CreateTable<User_Table>();
             conn.CreateTable<Trips_Table>();
@@ -102,6 +111,7 @@ namespace CapstoneTravelApp
                 newRes.ResName = "Carnation Cafe";
                 newRes.ResAddress = "Disneyland Park, Anaheim, CA 92802";
                 newRes.ResPhone = "(714)781-3463";
+                newRes.ResDate = DateTime.Today.AddDays(1);
                 newRes.ResNotes = "Dinner with my wife";
                 newRes.ResNotifications = 1;
                 newRes.TripId = newTrip2.TripId;
@@ -112,6 +122,7 @@ namespace CapstoneTravelApp
                 newRes2.ResName = "Rainforest Cafe";
                 newRes2.ResAddress = "123 Downtown Disney District, Anaheim, CA 92802";
                 newRes2.ResPhone = "(714)866-5555";
+                newRes2.ResDate = DateTime.Today.AddDays(1);
                 newRes2.ResNotes = "Birthday Dinner";
                 newRes2.ResNotifications = 1;
                 newRes2.TripId = newTrip2.TripId;
