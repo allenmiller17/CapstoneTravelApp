@@ -21,15 +21,6 @@ namespace CapstoneTravelApp
 
             NavigationPage.SetHasNavigationBar(this.Main, true);
 
-            //conn.DropTable<Admin_Table>();
-            //conn.DropTable<User_Table>();
-            //conn.DropTable<Trips_Table>();
-            //conn.DropTable<Flights_Table>();
-            //conn.DropTable<Dining_Table>();
-            //conn.DropTable<Entertainment_Table>();
-            //conn.DropTable<Lodging_Table>();
-            //conn.DropTable<Transportation_Table>();
-
             conn.CreateTable<Admin_Table>();
             conn.CreateTable<User_Table>();
             conn.CreateTable<Trips_Table>();
@@ -59,21 +50,21 @@ namespace CapstoneTravelApp
 
                 #region User Data
                 var newUser = new User_Table();
-                newUser.UserName = "allen1";
-                newUser.Password = "allen1";
-                newUser.FirstName = "Allen";
-                newUser.LastName = "Miller";
-                newUser.UserEmail = "17allenmiller@gmail.com";
+                newUser.UserName = "user1";
+                newUser.Password = "user1";
+                newUser.FirstName = "User";
+                newUser.LastName = "Test";
+                newUser.UserEmail = "TestUser@gmail.com";
 
                 conn.Insert(newUser);
                 _UserList.Add(newUser);
 
                 var newUser1 = new User_Table();
-                newUser1.UserName = "allen2";
-                newUser1.Password = "allen2";
-                newUser1.FirstName = "Allen2";
-                newUser1.LastName = "Miller2";
-                newUser1.UserEmail = "0217allenmiller@gmail.com";
+                newUser1.UserName = "test2";
+                newUser1.Password = "test2";
+                newUser1.FirstName = "John";
+                newUser1.LastName = "Doe";
+                newUser1.UserEmail = "JD@hotmail.com";
 
                 conn.Insert(newUser1);
                 _UserList.Add(newUser1);
@@ -84,10 +75,10 @@ namespace CapstoneTravelApp
 
                 var newTrip2 = new Trips_Table();
                 newTrip2.UserName = newUser.UserName;
-                newTrip2.TripName = "Florida 2021";
+                newTrip2.TripName = "Disneyland 2021";
                 newTrip2.TripStart = new DateTime(2021, 11, 12);
                 newTrip2.TripEnd = new DateTime(2021, 11, 17);
-                newTrip2.Notes = "We're In Florida Evan";
+                newTrip2.Notes = "We're In Disneyland Evan";
                 newTrip2.TripNotifications = 0;
                 newTrip2.UserId = newUser.UserId;
 
@@ -95,10 +86,10 @@ namespace CapstoneTravelApp
 
                 var newTrip3 = new Trips_Table();
                 newTrip3.UserName = newUser1.UserName;
-                newTrip3.TripName = "DisneyLand 2020";
+                newTrip3.TripName = "Utah 2020";
                 newTrip3.TripStart = new DateTime(2020, 11, 12);
                 newTrip3.TripEnd = new DateTime(2020, 11, 17);
-                newTrip3.Notes = "We're In Disneyland Evan";
+                newTrip3.Notes = "Request time off";
                 newTrip3.TripNotifications = 1;
                 newTrip3.UserId = newUser1.UserId;
 
@@ -122,7 +113,7 @@ namespace CapstoneTravelApp
                 newRes2.ResName = "Rainforest Cafe";
                 newRes2.ResAddress = "123 Downtown Disney District, Anaheim, CA 92802";
                 newRes2.ResPhone = "(714)866-5555";
-                newRes2.ResDate = DateTime.Today.AddDays(1);
+                newRes2.ResDate = new DateTime(2020,11,12);
                 newRes2.ResNotes = "Birthday Dinner";
                 newRes2.ResNotifications = 1;
                 newRes2.TripId = newTrip2.TripId;
