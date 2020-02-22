@@ -10,7 +10,6 @@ namespace CapstoneTravelApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterationPage : ContentPage
     {
-        User_Table users = new User_Table();
         UserHelper helper = new UserHelper();
         private SQLiteConnection conn;
 
@@ -22,6 +21,8 @@ namespace CapstoneTravelApp
             emailEntry.ReturnCommand = new Command(() => userNameEntry.Focus());
             userNameEntry.ReturnCommand = new Command(() => passwordEntry.Focus());
             passwordEntry.ReturnCommand = new Command(() => confirmPasswordEntry.Focus());
+
+            conn = DependencyService.Get<ITravelApp_db>().GetConnection();
         }
 
         private async void SignUpButton_Clicked(object sender, EventArgs e)
@@ -40,6 +41,8 @@ namespace CapstoneTravelApp
             }
             else
             {
+                conn.CreateTable<User_Table>();
+                var users = new User_Table();
                 users.UserEmail = emailEntry.Text;
                 users.UserName = userNameEntry.Text;
                 users.FirstName = firstNameEntry.Text;

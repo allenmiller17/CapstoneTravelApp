@@ -14,7 +14,6 @@ namespace CapstoneTravelApp.AdminFolder
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddAdminPage : ContentPage
     {
-        Admin_Table admin = new Admin_Table();
         UserHelper helper = new UserHelper();
         private SQLiteConnection conn;
 
@@ -24,6 +23,8 @@ namespace CapstoneTravelApp.AdminFolder
             emailEntry.ReturnCommand = new Command(() => userNameEntry.Focus());
             userNameEntry.ReturnCommand = new Command(() => passwordEntry.Focus());
             passwordEntry.ReturnCommand = new Command(() => confirmPasswordEntry.Focus());
+
+            conn = DependencyService.Get<ITravelApp_db>().GetConnection();
         }
 
         private async void RegisterButton_Clicked(object sender, EventArgs e)
@@ -41,6 +42,8 @@ namespace CapstoneTravelApp.AdminFolder
             }
             else
             {
+                var admin = new Admin_Table();
+                conn.CreateTable<Admin_Table>();
                 admin.AdminEmail = emailEntry.Text;
                 admin.AdminUserName = userNameEntry.Text;
                 admin.AdminPassword = passwordEntry.Text;
