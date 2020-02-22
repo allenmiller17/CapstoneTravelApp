@@ -16,6 +16,7 @@ namespace CapstoneTravelApp.AdminFolder
     {
         Admin_Table admin = new Admin_Table();
         UserHelper helper = new UserHelper();
+        private SQLiteConnection conn;
 
         public AddAdminPage()
         {
@@ -44,15 +45,16 @@ namespace CapstoneTravelApp.AdminFolder
                 admin.AdminUserName = userNameEntry.Text;
                 admin.AdminPassword = passwordEntry.Text;
 
-                var returnValue = helper.AddAdmin(admin);
-                if (returnValue == "Admin Added")
+                var returnValue = helper.AddAdmin(userNameEntry.Text);
+                if (returnValue)
                 {
+                    conn.Insert(admin);
                     await DisplayAlert("Success!", "New admin created", "Ok");
                     await Navigation.PopAsync();
                 }
                 else
                 {
-                    await DisplayAlert("Failure", "admin not created", "OK");
+                    await DisplayAlert("Failure", "That Admin Username already exists", "OK");
 
                     warningLabel.IsVisible = false;
 

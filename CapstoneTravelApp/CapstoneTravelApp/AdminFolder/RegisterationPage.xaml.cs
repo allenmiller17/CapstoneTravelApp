@@ -3,6 +3,7 @@ using CapstoneTravelApp.HelperFolders;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
 
 namespace CapstoneTravelApp
 {
@@ -11,6 +12,7 @@ namespace CapstoneTravelApp
     {
         User_Table users = new User_Table();
         UserHelper helper = new UserHelper();
+        private SQLiteConnection conn;
 
         public RegisterationPage()
         {
@@ -44,15 +46,16 @@ namespace CapstoneTravelApp
                 users.LastName = lastNameEntry.Text;
                 users.Password = passwordEntry.Text;
 
-                var returnValue = helper.AddUser(users);
-                if (returnValue == "User Added")
+                var returnValue = helper.AddUser(userNameEntry.Text);
+                if (returnValue)
                 {
+                    conn.Insert(users);
                     await DisplayAlert("Success!", "New user created", "Ok");
                     await Navigation.PushAsync(new LoginPage());
                 }
                 else
                 {
-                    await DisplayAlert("Failure", "User not created", "OK");
+                    await DisplayAlert("Failure", "That Username already exists.", "OK");
 
                     warningLabel.IsVisible = false;
 

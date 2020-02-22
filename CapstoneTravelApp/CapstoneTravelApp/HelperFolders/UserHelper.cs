@@ -40,37 +40,33 @@ namespace CapstoneTravelApp.HelperFolders
             _SQLiteConnection.Delete<User_Table>(id);
         }
 
-        public string AddUser(User_Table user)
+        public bool AddUser(string userName)
         {
-            var data = _SQLiteConnection.Table<User_Table>();
-            var d1 = data.Where(f => f.FirstName == user.FirstName && f.LastName == user.LastName && f.UserName == user.UserName)
-                .FirstOrDefault(f => f.UserId == user.UserId);
+            var UserList = _SQLiteConnection.Query<User_Table>($"SELECT * FROM User_Table WHERE UserName = '{userName}'");
 
-            if (d1 == null)
+            if (!UserList.Any())
             {
-                _SQLiteConnection.Insert(user);
-                return "User Added";
+                
+                return true;
             }
             else
             {
-                return "A user with this name already exists!";
+                return false;
             }
         }
 
-        public string AddAdmin(Admin_Table admin)
+        public bool AddAdmin(string admin)
         {
-            var data = _SQLiteConnection.Table<Admin_Table>();
-            var d1 = data.Where(f => f.AdminUserName == admin.AdminUserName)
-                .FirstOrDefault(f => f.AdminId == admin.AdminId);
+            var AdminList = _SQLiteConnection.Query<Admin_Table>($"SELECT * FROM Admin_Table WHERE AdminUserName = '{admin}'");
 
-            if (d1 == null)
+            if (!AdminList.Any())
             {
-                _SQLiteConnection.Insert(admin);
-                return "Admin Added";
+               
+                return true;
             }
             else
             {
-                return "An admin with this userName already exists!";
+                return false;
             }
         }
 
